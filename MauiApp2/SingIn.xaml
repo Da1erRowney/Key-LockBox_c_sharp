@@ -1,75 +1,76 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.SingIn">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
-            <Color x:Key="LabelTextColor">#000000</Color>
-            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-    <Grid BackgroundColor="{StaticResource PageBackgroundColor}">
-        <Image Source="background.jpg" Aspect="AspectFill" />
+        <Label
+            Text="Регистрация"
+            FontSize="45"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"  />
 
-        <ScrollView>
-            <StackLayout Spacing="20" Padding="30,0">
-                <Label
-                    FontAttributes="Bold"
-                    Text="Регистрация"
-                    FontSize="40"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start"
-                    TextColor="{StaticResource LabelTextColor}" />
+        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
+            
+            <Label
+                Text="Заполните данные"
+                FontSize="30"
+                HorizontalOptions="Center"
+                VerticalOptions="Start"/>
 
-                <Entry
-                    x:Name="EntryMail"
-                    TextColor="{StaticResource LabelTextColor}"
-                    MaxLength="30"
-                    Placeholder="Введите почту"
-                    Keyboard="Email"
-                    BackgroundColor="{StaticResource ButtonBackgroundColor}" />
+            <Entry
+                x:Name="EntryMail"
+                WidthRequest="300"
+                MaxLength="30"
+                Placeholder="Введите почту"
+                Keyboard="Email"
+                BackgroundColor="Transparent"/>
 
-                <Entry
-                    x:Name="EntryPassword1"
-                    TextColor="{StaticResource LabelTextColor}"
-                    MaxLength="50"
-                    Placeholder="Введите пароль"
-                    BackgroundColor="{StaticResource ButtonBackgroundColor}" />
+             <Entry
+                 x:Name="EntryPassword1"
+                 MaxLength="50"
+                 Placeholder="Введите пароль"
+                 BackgroundColor="Transparent"/>
 
-                <Entry
-                    x:Name="EntryPassword2"
-                    TextColor="{StaticResource LabelTextColor}"
-                    Placeholder="Повторите пароль"
-                    MaxLength="50"
-                    BackgroundColor="{StaticResource ButtonBackgroundColor}" />
-
+             <Entry
+                 x:Name="EntryPassword2"
+                 Placeholder="Повторите пароль"
+                 MaxLength="50"
+                 BackgroundColor="Transparent"/>
+            
+             <Frame
+                HeightRequest="50"
+                WidthRequest="100"
+                Padding="5"
+                CornerRadius="30"
+                HasShadow="True" >
+                
                 <Button
                     x:Name="CreateBtn"
                     Text="Создать"
                     Clicked="OnCreateClicked"
-                     WidthRequest="100"
-                    
+                    WidthRequest="100"
                     CornerRadius="30"
-                     FontAttributes="Bold"
-                    FontSize="20"
-                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
-                    TextColor="{StaticResource LabelTextColor}" />
+                    BackgroundColor="Transparent"/>
+            
+             </Frame>
+        
+             <Label
+                 x:Name="returns"
+                 Text="Вернуться назад"
+                 FontSize="20"
+                 HorizontalOptions="Center"
+                 VerticalOptions="End"
+                 Margin="0,10">
+                 
+                 <Label.GestureRecognizers>
+                     <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                 </Label.GestureRecognizers>
+             </Label>
 
-                <Label
-                    x:Name="returns"
-                    Text="Вернуться назад"
-                    FontSize="20"
-                    HorizontalOptions="Center"
-                    VerticalOptions="End"
-                    FontAttributes="Bold"
-                    Margin="0,10"
-                    TextColor="{StaticResource LabelTextColor}">
-                    <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="OnGoBackTapped" />
-                    </Label.GestureRecognizers>
-                </Label>
-            </StackLayout>
-        </ScrollView>
+        </VerticalStackLayout>
     </Grid>
 </ContentPage>

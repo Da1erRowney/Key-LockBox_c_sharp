@@ -2,55 +2,76 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="MauiApp2.MainPage">
 
-
     <Grid>
+        
         <Grid.RowDefinitions>
+            
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
+            
         </Grid.RowDefinitions>
 
-        <Image Source="background.jpg" Aspect="AspectFill" />
+        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
+            
+            <Label
+                Text="Ваше хранилище"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="45"
+                HorizontalOptions="Center"
+                LineBreakMode="WordWrap" />
+            
+            <Label
+                Text="Авторизуйтесь для получения функционала"
+                SemanticProperties.HeadingLevel="Level2"
+                FontSize="20"
+                FontAttributes="Bold"
+                HorizontalOptions="Center"
+                LineBreakMode="WordWrap" />
 
-        <VerticalStackLayout Grid.Row="0" Spacing="15" Padding="30,0">
-            <Label
-            Text="Ваше хранилище"
-            SemanticProperties.HeadingLevel="Level2"
-            FontSize="45"
-            HorizontalOptions="Center"
-            LineBreakMode="WordWrap" />
-            
-            <Button
-            x:Name="RegisterBtn"
-            Text="Регистрация"
-            Clicked="OnRegisterClicked"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-            FontSize="30"
-            BackgroundColor="#80FFFFFF" />
-            <!-- Полупрозрачная заливка с прозрачностью 50% -->
-            <Button
-            x:Name="LoginBtn"
-            Text="Войти"
-            Clicked="OnLoginClicked"
-            HorizontalOptions="Center"
-            FontAttributes="Bold"
-                
-            FontSize="30"
-            BackgroundColor="#80FFFFFF" />
-            
-            <!-- Полупрозрачная заливка с прозрачностью 50% -->
-            <Label
-            Text="Авторизуйтесь для получения функционала"
-            SemanticProperties.HeadingLevel="Level2"
-            FontSize="20"
-            HorizontalOptions="Center"
-            LineBreakMode="WordWrap" />
         </VerticalStackLayout>
+        
+        <VerticalStackLayout Grid.Row="0" Spacing="10" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
+            
+            <Frame
+                CornerRadius="30"
+                Padding="5"
+                HasShadow="True"
+                HeightRequest="50"
+                WidthRequest="170">
 
+                <Button
+                     x:Name="RegisterBtn"
+                     Text="Регистрация"
+                     Clicked="OnRegisterClicked"
+                     HorizontalOptions="Center"
+                     BackgroundColor="Transparent"/>
+            </Frame>
+
+            <Frame
+                CornerRadius="30"
+                HeightRequest="50"
+                WidthRequest="100"
+                Padding="5"
+                HasShadow="True" >
+
+                <Button
+                    x:Name="LoginBtn"
+                    Text="Войти"
+                    Clicked="OnLoginClicked"
+                    HorizontalOptions="Center"
+                    BackgroundColor="Transparent" />
+            </Frame>
+        
+        </VerticalStackLayout>
+    
         <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End">
+            
             <Label
-            Text="Разработано @DalerRowney"
-            FontSize="15" />
+                Text="Разработано @DalerRowney"
+                FontSize="15" />
+            
         </StackLayout>
+        
     </Grid>
+    
 </ContentPage>
