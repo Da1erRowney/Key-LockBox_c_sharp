@@ -1,0 +1,76 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.AddPunct">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="LabelTextColor">#000000</Color>
+            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
+            <Color x:Key="AccentColor">#007AFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image Source="background.jpg" Aspect="AspectFill" />
+            <StackLayout Spacing="20" Padding="30,0">
+                <Label
+                    Text="Добавление данных"
+                    FontSize="40"
+                     FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start" />
+
+                <Entry
+                    x:Name="EntryName"
+                     Placeholder="Введите название"/>
+
+                <Entry
+                    x:Name="EntryLogin" 
+                     Placeholder="Введите логин"/>
+
+                <Entry
+                    x:Name="EntryEmail" 
+                     Placeholder="Введите почту"/>
+
+                <Entry
+                    x:Name="EntryPassword" 
+                     Placeholder="Введите пароль"/>
+
+                <Entry
+                    x:Name="EntryOtherData" 
+                     Placeholder="Введите прочие данные"/>
+
+                <Button
+                    x:Name="CreateBtn"
+                    Text="Добавить"
+                    Clicked="AddData"
+                    WidthRequest="200"
+                    
+                    FontAttributes="Bold"
+                    CornerRadius="30"
+                    Margin="0,10" />
+                <Label
+                    x:Name="returns"
+                    Text="Вернуться назад"
+                    FontSize="20"
+                     FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Margin="0,10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+
+           
+        </Grid>
+    </ScrollView>
+</ContentPage>

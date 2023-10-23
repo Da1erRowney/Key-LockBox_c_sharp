@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.ChangeAccountDetails">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="LabelTextColor">#000000</Color>
+            <Color x:Key="EntryPlaceholderColor">#808080</Color>
+            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
+            <Color x:Key="AccentColor">#007AFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image Source="background.jpg" Aspect="AspectFill" />
+
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="30,0">
+                <Label
+                    Text="Редактирование данных"
+                    FontSize="40"
+                     FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    TextColor="{StaticResource LabelTextColor}" />
+
+                <Entry
+                    x:Name="EmailBtn"
+                    Placeholder="Ваша почта"
+                    PlaceholderColor="{StaticResource EntryPlaceholderColor}" />
+
+                <Entry
+                    x:Name="PasswordBtn"
+                    Placeholder="Введите пароль"
+                    PlaceholderColor="{StaticResource EntryPlaceholderColor}" />
+
+                <Button
+                    x:Name="RenameBtn"
+                    Text="Изменить"
+                    Clicked="RenameData"
+                    WidthRequest="100"
+                    FontAttributes="Bold"
+                    CornerRadius="30"
+                    Margin="0,10"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    TextColor="{StaticResource LabelTextColor}"
+                    FontSize="18" />
+                <Label
+                x:Name="returns"
+                Text="Вернуться назад"
+                FontSize="20"
+                 FontAttributes="Bold"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,10"
+                TextColor="{StaticResource LabelTextColor}">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </ScrollView>
+
+       
+    </Grid>
+</ContentPage>

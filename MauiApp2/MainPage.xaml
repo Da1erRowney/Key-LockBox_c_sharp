@@ -1,0 +1,56 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             x:Class="MauiApp2.MainPage">
+
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Source="background.jpg" Aspect="AspectFill" />
+
+        <VerticalStackLayout Grid.Row="0" Spacing="15" Padding="30,0">
+            <Label
+            Text="Ваше хранилище"
+            SemanticProperties.HeadingLevel="Level2"
+            FontSize="45"
+            HorizontalOptions="Center"
+            LineBreakMode="WordWrap" />
+            
+            <Button
+            x:Name="RegisterBtn"
+            Text="Регистрация"
+            Clicked="OnRegisterClicked"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+            FontSize="30"
+            BackgroundColor="#80FFFFFF" />
+            <!-- Полупрозрачная заливка с прозрачностью 50% -->
+            <Button
+            x:Name="LoginBtn"
+            Text="Войти"
+            Clicked="OnLoginClicked"
+            HorizontalOptions="Center"
+            FontAttributes="Bold"
+                
+            FontSize="30"
+            BackgroundColor="#80FFFFFF" />
+            
+            <!-- Полупрозрачная заливка с прозрачностью 50% -->
+            <Label
+            Text="Авторизуйтесь для получения функционала"
+            SemanticProperties.HeadingLevel="Level2"
+            FontSize="20"
+            HorizontalOptions="Center"
+            LineBreakMode="WordWrap" />
+        </VerticalStackLayout>
+
+        <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End">
+            <Label
+            Text="Разработано @DalerRowney"
+            FontSize="15" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,85 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.BasicsPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
+            <Color x:Key="LabelTextColor">#000000</Color>
+            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
+            <Color x:Key="AccentColor">#007AFF</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid BackgroundColor="{StaticResource PageBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="Transparent">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Label
+                x:Name="returns"
+                Text="•••"
+                FontSize="40"
+                HorizontalOptions="Center"
+                VerticalOptions="End"
+                Margin="0,10"
+                TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Blue200Accent}}" >
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnSettingsClicked" />
+                </Label.GestureRecognizers>
+            </Label>
+        </Grid>
+
+        <ScrollView Grid.Row="1">
+            <ListView x:Name="PersonalDataListView"
+              ItemsSource="{Binding PersonalDataList}"
+              ItemTapped="OnItemTapped"
+              
+              RowHeight="80">
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame 
+                           CornerRadius="40"
+                           Padding="10"
+                           Margin="5"
+                           BackgroundColor="{StaticResource ButtonBackgroundColor}">
+                                <StackLayout Spacing="5">
+                                    <Label Text="{Binding Name}" FontSize="20" TextColor="{StaticResource LabelTextColor}" />
+                                    <Label Text="{Binding Login}" FontSize="15" TextColor="{StaticResource LabelTextColor}" />
+
+                                    <!-- Добавьте другие связанные данные, которые хотите отображать -->
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollView>
+
+        <StackLayout Grid.Row="2"
+                     HorizontalOptions="Center"
+                     VerticalOptions="End">
+            <Button x:Name="AddBtn"
+                    Text="+"
+                    WidthRequest="60"
+                    HeightRequest="60"
+                    Clicked="OnAddClicked"
+                    FontSize="30"
+                    CornerRadius="30"
+                    Margin="0,10"
+                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
+                    TextColor="{StaticResource LabelTextColor}"
+                    BorderColor="{StaticResource AccentColor}"
+                    BorderWidth="1" />
+        </StackLayout>
+    </Grid>
+</ContentPage>

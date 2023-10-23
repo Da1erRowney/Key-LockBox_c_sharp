@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.ViewData"
+             Title="ViewData">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Image Source="background.jpg" Aspect="AspectFill" />
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="30,0">
+
+                <Label
+                    Text="Ваши данные"
+                    FontSize="40"
+                     FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start" />
+
+                <Frame 
+                        CornerRadius="10"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                        Padding="5">
+
+                    <Label 
+                            x:Name="Name"
+                            Text="Название: Неизвестно"
+                            FontSize="20"
+                            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                            VerticalOptions="Start" />
+                </Frame>
+
+                <Frame 
+                        CornerRadius="10"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                        Padding="5">
+
+                    <Label
+                        x:Name="Login"
+                        Text="Логин: Неизвестно"
+                        FontSize="20"
+                        
+                        TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                    
+                    VerticalOptions="Start" />
+                </Frame>
+
+                <Frame 
+                        CornerRadius="10"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                        Padding="5">
+                    <Label
+                     x:Name="Email"
+                    Text="Почта: Неизвестно"
+                     FontSize="20"
+                    
+                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                     
+                    VerticalOptions="Start" />
+                </Frame>
+                <Frame 
+                        CornerRadius="10"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                        Padding="5">
+                    <Label
+                     x:Name="Password"
+                    Text="Пароль: Неизвестно"
+                    FontSize="20"
+                    
+                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                   
+                    VerticalOptions="Start" />
+                </Frame>
+
+                <Frame 
+                        CornerRadius="10"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                        Padding="5">
+                    <Label
+                     x:Name="OtherData"
+                    Text="Прочие данные: Неизвестно"
+                    FontSize="20"
+                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                   
+                    VerticalOptions="Start" />
+                </Frame>
+
+
+
+
+                <Button
+                    x:Name="RenamesBtn"
+                    Text="Изменить"
+                    Clicked="RenamesData"
+                    WidthRequest="100"
+                     FontAttributes="Bold"
+                    CornerRadius="30"
+                    Margin="0,10"/>
+
+                <Button
+                    x:Name="DeleteBtn"
+                    Text="Удалить"
+                    Clicked="DeleteData"
+                    WidthRequest="100"
+                     FontAttributes="Bold"
+                    CornerRadius="30"
+                    Margin="0,10"/>
+                <Label
+                    x:Name="returns"
+                    Text="Вернуться назад"
+                    FontSize="20"
+                     FontAttributes="Bold"
+                    HorizontalOptions="Center"
+                    VerticalOptions="End"
+                    Margin="0,10">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                    </Label.GestureRecognizers>
+                </Label>
+
+            </StackLayout>
+        </ScrollView>
+       
+    </Grid>
+</ContentPage>
+
