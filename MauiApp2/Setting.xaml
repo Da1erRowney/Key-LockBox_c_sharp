@@ -1,78 +1,105 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Setting">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
-            <Color x:Key="LabelTextColor">#000000</Color>
-            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
-            <Color x:Key="AccentColor">#007AFF</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+    
 
     <Grid>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        <Image Source="background.jpg" Aspect="AspectFill" />
+        
+        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
 
-        <StackLayout Spacing="20" Padding="30,0">
             <Label
                 Text="Настройки"
-                FontSize="30"
+                FontSize="40"
                 HorizontalOptions="Center"
-                VerticalOptions="Start"
-                TextColor="{StaticResource LabelTextColor}" />
+                VerticalOptions="Start" />
 
-            <Button
-                x:Name="ChangeAccountDetailsBtn"
-                Text="Изменить учетную запись"
-                Clicked="ChangeAccountDetails"
-                BackgroundColor="{StaticResource ButtonBackgroundColor}"
-                TextColor="{StaticResource LabelTextColor}"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
-            <Picker
-                Title="Сменить Тему"
-                x:Name="SelectingThemePicker"
-                SelectedIndexChanged="OnSelectingThemeIndexChanged"
-                FontSize="18"
-                HorizontalOptions="Center">
-                <Picker.ItemsSource>
-                    <x:Array Type="{x:Type x:String}">
-                        <x:String>Светлая</x:String>
-                        <x:String>Темная</x:String>
-                    </x:Array>
-                </Picker.ItemsSource>
-            </Picker>
-
-            <Button
-                x:Name="ExitAccountBtn"
-                Text="Выйти из учетной записи"
-                Clicked="ExitAccount"
-                BackgroundColor="{StaticResource ButtonBackgroundColor}"
-                TextColor="{StaticResource LabelTextColor}"
-                FontSize="18"
-                HorizontalOptions="Center" />
-        </StackLayout>
-
-        <StackLayout Grid.Row="2"
-                     HorizontalOptions="Center"
-                     VerticalOptions="End">
-            <Button
-                x:Name="returnBtn"
-                Text="Вернуться назад"
-                Clicked="OnGoBackTapped"
-                WidthRequest="200"
-                HeightRequest="30"
+            <Frame
+                HeightRequest="50"
+                WidthRequest="250"
+                Padding="5"
                 CornerRadius="30"
-                Margin="0,10"
-                BackgroundColor="{StaticResource ButtonBackgroundColor}"
-                TextColor="{StaticResource LabelTextColor}"
-                FontSize="18" />
-        </StackLayout>
+                HasShadow="True" >
+
+                <Button
+                    x:Name="ChangeAccountDetailsBtn"
+                    Text="Изменить учетную запись"
+                    Clicked="ChangeAccountDetails"
+                    BackgroundColor="Transparent"
+                    CornerRadius="30"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame
+                HeightRequest="50"
+                WidthRequest="250"
+                Padding="5"
+                CornerRadius="30"
+                HasShadow="True" >
+
+                <Button
+                    x:Name="ExitAccountBtn"
+                    Text="Выйти из учетной записи"
+                    Clicked="ExitAccount"
+                    CornerRadius="30"
+                    BackgroundColor="Transparent"
+                    HorizontalOptions="Center" />
+            </Frame>
+
+            <Frame
+                HeightRequest="50"
+                WidthRequest="250"
+                Padding="5"
+                CornerRadius="30"
+                HasShadow="True" >
+
+
+                <Picker
+                    Title="Сменить Тему"
+                    x:Name="SelectingThemePicker"
+                    SelectedIndexChanged="OnSelectingThemeIndexChanged"
+                    FontSize="20"
+                    HorizontalOptions="Center">
+
+                        <Picker.ItemsSource>
+
+                            <x:Array Type="{x:Type x:String}">
+
+                                <x:String>Светлая</x:String>
+                                <x:String>Темная</x:String>
+
+                            </x:Array>
+
+                        </Picker.ItemsSource>
+
+                </Picker>
+            </Frame>
+        
+            <Frame
+                HeightRequest="50"
+                WidthRequest="150"
+                Padding="5"
+                CornerRadius="30"
+                HasShadow="True" >
+
+                <Button
+                    x:Name="returnBtn"
+                    Text="Вернуться назад"
+                    Clicked="OnGoBackTapped"
+                    BackgroundColor="Transparent"
+                    CornerRadius="30"
+                    Margin="0,10"
+                    FontSize="18" />
+            </Frame>
+            
+        </VerticalStackLayout>
+
+
     </Grid>
+    
 </ContentPage>
