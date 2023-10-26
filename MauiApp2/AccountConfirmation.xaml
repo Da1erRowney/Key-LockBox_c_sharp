@@ -54,7 +54,7 @@
                 HorizontalOptions="Center"
                 VerticalOptions="End"
                 Margin="0,10"
-                TextColor="{StaticResource LabelTextColor}">
+                >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnGoBackTapped" />
                     </Label.GestureRecognizers>

@@ -24,7 +24,7 @@ public partial class AccountConfirmation : ContentPage
     }
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PopModalAsync();
+        await Navigation.PushModalAsync(new Setting());
     }
 
     private async void Confirmation(object sender, EventArgs e)

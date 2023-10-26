@@ -63,5 +63,7 @@ namespace MauiApp2
             var basicsPage = new BasicsPage();
             await Navigation.PushModalAsync(basicsPage);
         }
+
+       
     }
 }

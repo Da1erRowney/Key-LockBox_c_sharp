@@ -8,50 +8,57 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
 
-        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0">
-            <Label
-                Text="Настройки"
-                FontSize="35"
-                VerticalOptions="Start" />
+        <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="10,0">
+            <Label Text="Настройки" FontSize="35" VerticalOptions="Start" />
 
-            <Label
-                x:Name="ChangeAccountDetailsBtn"
-                Text="Изменить данные учетной записи"
-                FontSize="20"
-                FontAttributes="Bold"
-                VerticalOptions="End"
-                Margin="0,10">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ChangeAccountDetails" />
-                </Label.GestureRecognizers>
-            </Label>
+            <Frame BackgroundColor="Transparent" CornerRadius="0" Padding="10" WidthRequest="465">
+                <StackLayout>
+                    <Label Text="Аккаунт" FontSize="22" VerticalOptions="Start" />
 
-            <Label
-                x:Name="ExitAccountBtn"
-                Text="Выйти из учетной записи"
-                FontSize="20"
-                VerticalOptions="End"
-                Margin="0,10">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="ExitAccount" />
-                </Label.GestureRecognizers>
-            </Label>
+                    <Label x:Name="ChangeAccountDetailsBtn" Text="Изменить данные учетной записи" FontSize="20"
+                           FontAttributes="Bold" VerticalOptions="End" Margin="0,10,0,5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ChangeAccountDetails" />
+                        </Label.GestureRecognizers>
+                    </Label>
 
-            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
-                <Label Text="Сменить тему" FontSize="20" VerticalOptions="Center" />
-                <Switch x:Name="ThemeSwitch" IsToggled="false" Toggled="OnThemeToggled" VerticalOptions="Center" />
-            </StackLayout>
+                    <Label Text="Возможность обновления пользовательских данных используемых для авторизации."
+                           FontSize="15" VerticalOptions="Start" Margin="0,0,0,10" />
 
-            <Label
-                x:Name="returns"
-                Text="Вернуться назад"
-                FontSize="20"
-                VerticalOptions="End"
-                Margin="0,10">
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnGoBackTapped" />
-                </Label.GestureRecognizers>
-            </Label>
+                    <Label x:Name="ExitAccountBtn" Text="Выйти из учетной записи" FontAttributes="Bold"
+                           FontSize="20" VerticalOptions="End" Margin="0,10,0,5">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="ExitAccount" />
+                        </Label.GestureRecognizers>
+                    </Label>
+
+                    <Label Text="Выход из активной учетной записи." FontSize="15" VerticalOptions="Start" Margin="0,0,0,10" />
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" CornerRadius="0" Padding="10" WidthRequest="465">
+                <StackLayout>
+                    <Label Text="Приложение" FontSize="22" VerticalOptions="Start" />
+
+                    <Label Text="Сменить тему" FontSize="20" VerticalOptions="Center" FontAttributes="Bold" />
+
+                    <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+                        <Label Text="Две существующие темы: Светлая и Тёмная" FontSize="15" VerticalOptions="Center" />
+                        <Switch x:Name="ThemeSwitch" IsToggled="false" Toggled="OnThemeToggled" VerticalOptions="Center" />
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+
+            <Frame BackgroundColor="Transparent" CornerRadius="0" Padding="10" WidthRequest="465">
+                <StackLayout>
+                    <Label x:Name="returns" Text="Вернуться назад" FontAttributes="Bold" FontSize="20"
+                           VerticalOptions="End" Margin="0,10">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                        </Label.GestureRecognizers>
+                    </Label>
+                </StackLayout>
+            </Frame>
         </VerticalStackLayout>
     </Grid>
 </ContentPage>
