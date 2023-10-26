@@ -1,105 +1,57 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.Setting">
-    
-
     <Grid>
-        
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
-        
-        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
 
+        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0">
             <Label
                 Text="Настройки"
-                FontSize="40"
-                HorizontalOptions="Center"
+                FontSize="35"
                 VerticalOptions="Start" />
 
-            <Frame
-                HeightRequest="50"
-                WidthRequest="250"
-                Padding="5"
-                CornerRadius="30"
-                HasShadow="True" >
+            <Label
+                x:Name="ChangeAccountDetailsBtn"
+                Text="Изменить данные учетной записи"
+                FontSize="20"
+                FontAttributes="Bold"
+                VerticalOptions="End"
+                Margin="0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ChangeAccountDetails" />
+                </Label.GestureRecognizers>
+            </Label>
 
-                <Button
-                    x:Name="ChangeAccountDetailsBtn"
-                    Text="Изменить учетную запись"
-                    Clicked="ChangeAccountDetails"
-                    BackgroundColor="Transparent"
-                    CornerRadius="30"
-                    HorizontalOptions="Center" />
-            </Frame>
+            <Label
+                x:Name="ExitAccountBtn"
+                Text="Выйти из учетной записи"
+                FontSize="20"
+                VerticalOptions="End"
+                Margin="0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="ExitAccount" />
+                </Label.GestureRecognizers>
+            </Label>
 
-            <Frame
-                HeightRequest="50"
-                WidthRequest="250"
-                Padding="5"
-                CornerRadius="30"
-                HasShadow="True" >
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center">
+                <Label Text="Сменить тему" FontSize="20" VerticalOptions="Center" />
+                <Switch x:Name="ThemeSwitch" IsToggled="false" Toggled="OnThemeToggled" VerticalOptions="Center" />
+            </StackLayout>
 
-                <Button
-                    x:Name="ExitAccountBtn"
-                    Text="Выйти из учетной записи"
-                    Clicked="ExitAccount"
-                    CornerRadius="30"
-                    BackgroundColor="Transparent"
-                    HorizontalOptions="Center" />
-            </Frame>
-
-            <Frame
-                HeightRequest="50"
-                WidthRequest="250"
-                Padding="5"
-                CornerRadius="30"
-                HasShadow="True" >
-
-
-                <Picker
-                    Title="Сменить Тему"
-                    x:Name="SelectingThemePicker"
-                    SelectedIndexChanged="OnSelectingThemeIndexChanged"
-                    FontSize="20"
-                    HorizontalOptions="Center">
-
-                        <Picker.ItemsSource>
-
-                            <x:Array Type="{x:Type x:String}">
-
-                                <x:String>Светлая</x:String>
-                                <x:String>Темная</x:String>
-
-                            </x:Array>
-
-                        </Picker.ItemsSource>
-
-                </Picker>
-            </Frame>
-        
-            <Frame
-                HeightRequest="50"
-                WidthRequest="150"
-                Padding="5"
-                CornerRadius="30"
-                HasShadow="True" >
-
-                <Button
-                    x:Name="returnBtn"
-                    Text="Вернуться назад"
-                    Clicked="OnGoBackTapped"
-                    BackgroundColor="Transparent"
-                    CornerRadius="30"
-                    Margin="0,10"
-                    FontSize="18" />
-            </Frame>
-            
+            <Label
+                x:Name="returns"
+                Text="Вернуться назад"
+                FontSize="20"
+                VerticalOptions="End"
+                Margin="0,10">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                </Label.GestureRecognizers>
+            </Label>
         </VerticalStackLayout>
-
-
     </Grid>
-    
 </ContentPage>

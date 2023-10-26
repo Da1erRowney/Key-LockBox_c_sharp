@@ -22,32 +22,23 @@ namespace MauiApp2
             InitializeComponent();
         }
 
-        private async void OnSelectingThemeIndexChanged(object sender, EventArgs e)
+        private async void OnThemeToggled(object sender, ToggledEventArgs e)
         {
-            if ((string)SelectingThemePicker.SelectedItem == "Светлая")
-            {
-                // Применить светлую тему
-                Application.Current.UserAppTheme = AppTheme.Light;
+            bool isDarkTheme = e.Value;
 
-                // Изменить источник изображения для светлой темы
-               // settingsButton.Source = "setting8.png"; // Используйте сохраненную ссылку на SettingsBtn
-                await Navigation.PushModalAsync(new Setting());
-            }
-            else if ((string)SelectingThemePicker.SelectedItem == "Темная")
+            if (isDarkTheme)
             {
                 // Применить темную тему
                 Application.Current.UserAppTheme = AppTheme.Dark;
-
-                // Изменить источник изображения для темной темы
-               // settingsButton.Source = "setting9.png"; // Используйте сохраненную ссылку на SettingsBtn
-                await Navigation.PushModalAsync(new Setting());
             }
             else
             {
-                // Применить системную тему
-                Application.Current.UserAppTheme = AppTheme.Unspecified;
-                await Navigation.PushModalAsync(new Setting());
+                // Применить светлую тему
+                Application.Current.UserAppTheme = AppTheme.Light;
             }
+
+            await Navigation.PushAsync(new Setting());
+            Navigation.RemovePage(this);
         }
         private async void ChangeAccountDetails(object sender, EventArgs e)
         {
