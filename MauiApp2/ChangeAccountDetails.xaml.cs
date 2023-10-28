@@ -25,8 +25,10 @@ public partial class ChangeAccountDetails : ContentPage
 
     private void UpdateUserEntry()
     {
+        User user = _databaseService.GetUserByEmail(CurrentUserEmail);
         PasswordBtn.Text = CurrentUserPassword;
         EmailBtn.Text = CurrentUserEmail;
+        PinCodeBtn.Text = user.PinCode;
     }
 
 

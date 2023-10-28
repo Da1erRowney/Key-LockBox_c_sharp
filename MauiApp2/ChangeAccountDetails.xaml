@@ -29,7 +29,11 @@
                 <Entry
                     x:Name="PasswordBtn"
                     Placeholder="Введите пароль"/>
-                    
+
+                <Entry
+                    x:Name="PinCodeBtn"
+                    Placeholder="Ваш Пинкод" />
+
                 <Frame
                 CornerRadius="30"
                 Padding="5"
