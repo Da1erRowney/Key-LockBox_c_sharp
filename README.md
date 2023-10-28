@@ -16,3 +16,4 @@ General functionality:
 8. Ability to log out of your account.
 9. Displaying hints for newly created accounts.
 10. Added a PIN code system for re-entering the application.
+11. Added user data hashing.
