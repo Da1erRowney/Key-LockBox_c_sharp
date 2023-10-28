@@ -15,13 +15,11 @@ namespace MauiApp2
         public DatabaseServiceUser(string databasePath)
         {
             _connection = new SQLiteConnection(databasePath);
-            // Дополнительные настройки базы данных, если необходимо
         }
 
         public void CreateTables()
         {
             _connection.CreateTable<User>();
-            // Создание других таблиц, если необходимо
         }
 
         public void InsertUser(User user)
@@ -49,7 +47,6 @@ namespace MauiApp2
             _connection.Update(user);
         }
 
-        // Другие методы для работы с базой данных
     }
 
     public class User

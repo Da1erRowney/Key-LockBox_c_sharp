@@ -1,5 +1,12 @@
 namespace MauiApp2;
+using Microsoft.Maui.ApplicationModel.Communication;
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.RegularExpressions;
+using MauiApp2;
+using SQLite;
+using static System.Security.Cryptography.SHA256;
+
 
 public partial class ChangeAccountDetails : ContentPage
 {
@@ -59,10 +66,12 @@ public partial class ChangeAccountDetails : ContentPage
         else
         {
             User currentUser = _databaseService.GetUserByEmail(CurrentUserEmail);
+            string salt = CurrentUserEmail.Split('@')[0];
+            string hashedPassword = HashPassword(password, salt);
 
             // Обновление свойств с новыми значениями
             currentUser.Email = EmailBtn.Text;
-            currentUser.Password = PasswordBtn.Text;
+            currentUser.Password = hashedPassword;
             currentUser.PinCode = PinCodeBtn.Text;
             // Сохранение изменений в базе данных
             _databaseService.UpdateUser(currentUser);
@@ -72,6 +81,23 @@ public partial class ChangeAccountDetails : ContentPage
         }
 
     }
+    private string HashPassword(string password, string salt)
+    {
+        string saltedPassword = password + salt;
+
+        using (SHA256 sha256 = SHA256.Create())
+        {
+            byte[] bytes = Encoding.UTF8.GetBytes(saltedPassword);
+
+            byte[] hashedBytes = sha256.ComputeHash(bytes);
+
+            string hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+
+
+            return hashedPassword;
+        }
+    }
+
     private bool HasLetterAndDigit(string input)
     {
         return Regex.IsMatch(input, @"[a-zA-Z]") && Regex.IsMatch(input, @"\d");

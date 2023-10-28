@@ -55,27 +55,32 @@ namespace MauiApp2
             User user = _databaseService.GetUserByEmail(email);
             if (user != null)
             {
+                string salt = email.Split('@')[0];
+                string hashedPassword = HashPassword(password, salt);
+
                 CurrentUserEmail = email;
-                CurrentUserPassword = password;
-                string hashedPassword = (password);
+                CurrentUserPassword = hashedPassword;
                 return user.Password == hashedPassword;
             }
             return false;
         }
+        private string HashPassword(string password, string salt)
+        {
+            string saltedPassword = password + salt;
 
-        //private string HashPassword(string password)
-        //{
-        //    using (SHA256 sha256Hash = SHA256.Create())
-        //    {
-        //        byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(password));
-        //        StringBuilder builder = new StringBuilder();
-        //        for (int i = 0; i < bytes.Length; i++)
-        //        {
-        //            builder.Append(bytes[i].ToString("x2"));
-        //        }
-        //        return builder.ToString();
-        //    }
-        //}
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(saltedPassword);
+
+                byte[] hashedBytes = sha256.ComputeHash(bytes);
+
+                string hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
+
+
+                return hashedPassword;
+            }
+        }
+
 
         private async void OnGoBackTapped(object sender, TappedEventArgs e)
         {
