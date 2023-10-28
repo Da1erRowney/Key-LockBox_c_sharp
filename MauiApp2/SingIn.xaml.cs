@@ -1,6 +1,7 @@
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using MauiApp2;
+using Org.W3c.Dom;
 using SQLite;
 
 
@@ -81,7 +82,9 @@ namespace MauiApp2
                 Password = password1,
                 HintsBasics = "NoN",
                 HintsSetting = "NoN",
-                HintsData= "NoN"
+                HintsData= "NoN",
+                PinCode="NoN",
+                StatusAccount = "Off"
             };
             
              _databaseService.InsertUser(user);

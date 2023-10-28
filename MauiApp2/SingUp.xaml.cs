@@ -35,18 +35,15 @@ namespace MauiApp2
             bool isAuthenticated = AuthenticateUser(email, password1);
             if (isAuthenticated)
             {
-                // ChangeAccountDetails changeAccountDetails = new ChangeAccountDetails();
-                // changeAccountDetails.CurrentUserEmail = Email; // Передача значения CurrentUserEmail
-                // changeAccountDetails.CurrentUserPassword = Password; // Передача значения CurrentUserPassword
-                //  await Navigation.PushModalAsync(changeAccountDetails);
+
+                User user = _databaseService.GetUserByEmail(email);
                 await DisplayAlert("Успех", "Вы авторизовались", "OK");
                 BasicsPage basicsPage = new BasicsPage();
-                //basicsPage.CurrentUserEmail = Email; // Передача значения CurrentUserEmail
-                //basicsPage.CurrentUserPassword = Password; // Передача значения CurrentUserPassword
-                await Navigation.PushModalAsync(basicsPage);// Используйте changeAccountDetails для навигации
-                                                            // Сохранение текущей почты
-
-                //await Navigation.PushModalAsync(new BasicsPage());
+                await DisplayAlert("Успех", user.StatusAccount, "OK");
+                user.StatusAccount = "On";
+                await DisplayAlert("Успех", user.StatusAccount, "OK");
+                _databaseService.UpdateUser(user); // Обновление записи пользователя в базе данных
+                await Navigation.PushModalAsync(basicsPage);
                 basicsPage.Unfocus();
             }
             else

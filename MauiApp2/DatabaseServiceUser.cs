@@ -54,4 +54,6 @@ public class User
     public string HintsBasics { get; set; }
     public string HintsSetting { get; set; }
     public string HintsData { get; set; }
+    public string PinCode { get; set; }
+    public string StatusAccount { get; set; }
 }
