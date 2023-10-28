@@ -44,9 +44,10 @@ namespace MauiApp2
                 //basicsPage.CurrentUserEmail = Email; // Передача значения CurrentUserEmail
                 //basicsPage.CurrentUserPassword = Password; // Передача значения CurrentUserPassword
                 await Navigation.PushModalAsync(basicsPage);// Используйте changeAccountDetails для навигации
-                // Сохранение текущей почты
-                
+                                                            // Сохранение текущей почты
+
                 //await Navigation.PushModalAsync(new BasicsPage());
+                basicsPage.Unfocus();
             }
             else
             {

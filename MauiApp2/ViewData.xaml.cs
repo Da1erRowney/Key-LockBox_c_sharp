@@ -6,11 +6,11 @@ namespace MauiApp2
     public partial class ViewData : ContentPage
     {
         private PersonalData selectedData; // Объявление переменной класса
-
+        string CurrentUserEmail = SingUp.CurrentUserEmail;
         public ViewData(PersonalData selectedData)
         {
             InitializeComponent();
-
+            CheckHintsBasics();
             // Сохраняем выбранные данные в переменную класса
             this.selectedData = selectedData;
 
@@ -20,7 +20,26 @@ namespace MauiApp2
             Password.Text = "Пароль: " + selectedData.Password;
             OtherData.Text = "Прочие данные: " + selectedData.OtherData;
         }
+        private void CheckHintsBasics()
+        {
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            DatabaseServiceUser databaseService = new DatabaseServiceUser(databasePath);
 
+            // Получите информацию о текущем пользователе
+            User currentUser = databaseService.GetUserByEmail(CurrentUserEmail);
+
+            if (currentUser.HintsData == "NoN")
+            {
+                // Всплывающее уведомление
+                DisplayAlert("Подсказка", "Это ваш кейс с вашими данными. Мы используем одно из самых эффективных шифрований для защиты ваших данных. Вы можете изменить ваши данные или же фатального их удалить без возможности восстановления.", "OK");
+
+                // Обновите значение поля HintsBasics в базе данных
+                currentUser.HintsData = "Active";
+                databaseService.UpdateUser(currentUser);
+            }
+
+            databaseService.CloseConnection();
+        }
         private async void OnGoBackTapped(object sender, TappedEventArgs e)
         {
             await Navigation.PopModalAsync();

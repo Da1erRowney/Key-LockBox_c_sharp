@@ -27,7 +27,10 @@ public class DatabaseServiceUser
     {
         _connection.Insert(user);
     }
-
+    public void CloseConnection()
+    {
+        _connection?.Close();
+    }
     public User GetUserByEmail(string email)
     {
         return _connection.Table<User>().FirstOrDefault(u => u.Email == email);
@@ -48,4 +51,7 @@ public class User
     [PrimaryKey]
     public string Email { get; set; }
     public string Password { get; set; }
+    public string HintsBasics { get; set; }
+    public string HintsSetting { get; set; }
+    public string HintsData { get; set; }
 }

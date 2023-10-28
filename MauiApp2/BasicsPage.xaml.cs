@@ -27,6 +27,9 @@ namespace MauiApp2
             InitializeComponent();
             InitializePersonalDataList();
             BindingContext = this;
+
+            // Проверка значения поля HintsBasics в базе данных
+            CheckHintsBasics();
         }
 
         private void InitializePersonalDataList()
@@ -43,7 +46,26 @@ namespace MauiApp2
 
             databaseService.CloseConnection();
         }
+        private void CheckHintsBasics()
+        {
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            DatabaseServiceUser databaseService = new DatabaseServiceUser(databasePath);
 
+            // Получите информацию о текущем пользователе
+            User currentUser = databaseService.GetUserByEmail(CurrentUserEmail);
+
+            if (currentUser.HintsBasics == "NoN")
+            {
+                // Всплывающее уведомление
+                DisplayAlert("Подсказка", "На данной странице вы можете создать кейсы для хранения ваших данных и их последующий просмотр. Так же сверху слева есть вкладка настройки.", "OK");
+
+                // Обновите значение поля HintsBasics в базе данных
+                currentUser.HintsBasics = "Active";
+                databaseService.UpdateUser(currentUser);
+            }
+
+            databaseService.CloseConnection();
+        }
         private async void OnAddClicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new AddPunct());

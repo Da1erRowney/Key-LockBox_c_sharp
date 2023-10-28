@@ -78,7 +78,10 @@ namespace MauiApp2
             var user = new User
             {
                 Email = email,
-                Password = password1
+                Password = password1,
+                HintsBasics = "NoN",
+                HintsSetting = "NoN",
+                HintsData= "NoN"
             };
             
              _databaseService.InsertUser(user);

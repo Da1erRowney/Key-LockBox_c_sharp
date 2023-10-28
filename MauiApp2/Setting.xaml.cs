@@ -7,8 +7,9 @@ namespace MauiApp2
 {
     public partial class Setting : ContentPage
     {
-        public string CurrentUserEmail { get; set; }
-        public string CurrentUserPassword { get; set; }
+        string CurrentUserEmail = SingUp.CurrentUserEmail;
+        string CurrentUserPassword = SingUp.CurrentUserPassword;
+
         //private ImageButton settingsButton; // Приватное поле для хранения ссылки на SettingsBtn
         //public Setting(ImageButton settingsBtn)
         //{
@@ -20,8 +21,28 @@ namespace MauiApp2
         public Setting()
         {
             InitializeComponent();
+            CheckHintsBasics();
         }
+        private void CheckHintsBasics()
+        {
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            DatabaseServiceUser databaseService = new DatabaseServiceUser(databasePath);
 
+            // Получите информацию о текущем пользователе
+            User currentUser = databaseService.GetUserByEmail(CurrentUserEmail);
+
+            if (currentUser.HintsSetting == "NoN")
+            {
+                // Всплывающее уведомление
+                DisplayAlert("Подсказка", "Здесь вы можете изменить данные своей учетной записи, сменить пользовательскую тему и выйти из аккаунта.", "OK");
+
+                // Обновите значение поля HintsBasics в базе данных
+                currentUser.HintsSetting = "Active";
+                databaseService.UpdateUser(currentUser);
+            }
+
+            databaseService.CloseConnection();
+        }
         private async void OnThemeToggled(object sender, ToggledEventArgs e)
         {
             bool isDarkTheme = e.Value;
