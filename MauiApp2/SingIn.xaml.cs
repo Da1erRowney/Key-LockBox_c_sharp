@@ -38,8 +38,9 @@ namespace MauiApp2
             string password1 = EntryPassword1.Text;
             string password2 = EntryPassword2.Text;
             string email = EntryMail.Text;
+            email = email.ToLower();
 
-            
+
             if (string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(password2) || string.IsNullOrEmpty(email))
             {
                 await DisplayAlert("Ошибка", "Не все поля заполнены", "OK");

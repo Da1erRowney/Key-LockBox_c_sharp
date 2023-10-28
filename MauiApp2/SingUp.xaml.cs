@@ -23,7 +23,7 @@ namespace MauiApp2
         {
             string password1 = EntryPassword1.Text;
             string email = EntryMail.Text;
-
+            email = email.ToLower();
             // Проверка на пустоту полей
             if (string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(email))
             {
