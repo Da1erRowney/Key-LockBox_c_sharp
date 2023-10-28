@@ -1,9 +1,9 @@
 A mobile application designed to store the user’s personal data for further opening and editing. A kind of application for people with short-term memory.
 
-Language: C#
-Project platform: NET MAUI
-Platforms: Android, IOS, Windows
-Database: SQLite
+Language: C#.
+Project platform: NET MAUI.
+Platforms: Android, IOS, Windows.
+Database: SQLite.
 
 General functionality:
 1. Authorization and registration in the system.
