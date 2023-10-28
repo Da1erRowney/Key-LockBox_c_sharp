@@ -6,54 +6,61 @@ using System.Threading.Tasks;
 using Microsoft.Maui.ApplicationModel.Communication;
 using SQLite;
 
-
-public class DatabaseServiceUser
+namespace MauiApp2
 {
-    private SQLiteConnection _connection;
-
-    public DatabaseServiceUser(string databasePath)
+    public class DatabaseServiceUser
     {
-        _connection = new SQLiteConnection(databasePath);
-        // Дополнительные настройки базы данных, если необходимо
+        private SQLiteConnection _connection;
+
+        public DatabaseServiceUser(string databasePath)
+        {
+            _connection = new SQLiteConnection(databasePath);
+            // Дополнительные настройки базы данных, если необходимо
+        }
+
+        public void CreateTables()
+        {
+            _connection.CreateTable<User>();
+            // Создание других таблиц, если необходимо
+        }
+
+        public void InsertUser(User user)
+        {
+            _connection.Insert(user);
+        }
+
+        public void CloseConnection()
+        {
+            _connection?.Close();
+        }
+
+        public User GetUserByEmail(string email)
+        {
+            return _connection.Table<User>().FirstOrDefault(u => u.Email == email);
+        }
+
+        public User GetUserByStatusAccount(string statusAccount)
+        {
+            return _connection.Table<User>().FirstOrDefault(u => u.StatusAccount == statusAccount);
+        }
+
+        public void UpdateUser(User user)
+        {
+            _connection.Update(user);
+        }
+
+        // Другие методы для работы с базой данных
     }
 
-    public void CreateTables()
+    public class User
     {
-        _connection.CreateTable<User>();
-        // Создание других таблиц, если необходимо
+        [PrimaryKey]
+        public string Email { get; set; }
+        public string Password { get; set; }
+        public string HintsBasics { get; set; }
+        public string HintsSetting { get; set; }
+        public string HintsData { get; set; }
+        public string PinCode { get; set; }
+        public string StatusAccount { get; set; }
     }
-
-    public void InsertUser(User user)
-    {
-        _connection.Insert(user);
-    }
-    public void CloseConnection()
-    {
-        _connection?.Close();
-    }
-    public User GetUserByEmail(string email)
-    {
-        return _connection.Table<User>().FirstOrDefault(u => u.Email == email);
-    }
-
-    public void UpdateUser(User user)
-    {
-        _connection.Update(user);
-    }
-
-    // Другие методы для работы с базой данных
-
-    
-    }
-
-public class User
-{
-    [PrimaryKey]
-    public string Email { get; set; }
-    public string Password { get; set; }
-    public string HintsBasics { get; set; }
-    public string HintsSetting { get; set; }
-    public string HintsData { get; set; }
-    public string PinCode { get; set; }
-    public string StatusAccount { get; set; }
 }

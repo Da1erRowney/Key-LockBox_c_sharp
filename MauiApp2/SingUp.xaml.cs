@@ -9,8 +9,8 @@ namespace MauiApp2
     public partial class SingUp : ContentPage
     {
         private DatabaseServiceUser _databaseService;
-        public static string CurrentUserEmail { get; private set; }
-        public static string CurrentUserPassword { get; private set; }
+        public static string CurrentUserEmail { get;  set; }
+        public static string CurrentUserPassword { get;  set; }
         public SingUp()
         {
             InitializeComponent();

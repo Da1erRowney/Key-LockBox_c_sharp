@@ -97,6 +97,9 @@
 	  <MauiXaml Update="ChangeData.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="ConfirmationPinCode.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="ViewData.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>

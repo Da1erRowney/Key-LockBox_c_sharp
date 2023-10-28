@@ -18,7 +18,7 @@
           
                 <Label
                     Text="Редактирование данных"
-                    FontSize="45"
+                    FontSize="40"
                     HorizontalOptions="Center"
                     VerticalOptions="Start" />
 
@@ -32,7 +32,10 @@
 
                 <Entry
                     x:Name="PinCodeBtn"
-                    Placeholder="Ваш Пинкод" />
+                    WidthRequest="50"
+                    FontSize="22"
+                    MaxLength="4"
+                    Keyboard="Numeric"/>
 
                 <Frame
                 CornerRadius="30"

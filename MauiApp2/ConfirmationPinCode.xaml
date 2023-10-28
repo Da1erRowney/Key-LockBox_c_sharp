@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp2.AccountConfirmation">
+             x:Class="MauiApp2.ConfirmationPinCode">
     <Grid>
         <Grid.RowDefinitions>
 
-        <RowDefinition Height="*" />
-        <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
 
-    </Grid.RowDefinitions>
-            <ScrollView>
-        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
+        </Grid.RowDefinitions>
+        <ScrollView>
+            <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
                 <Label
                     x:Name="UserLabel"
@@ -18,10 +18,20 @@
                     FontSize="30"
                     HorizontalOptions="Center"
                     VerticalOptions="Start"/>
+                <Label
+                   
+                    Text="Введите PinCode"
+                    FontSize="30"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"/>
 
                 <Entry
-                    x:Name="PasswordBtn"
-                    Placeholder="Подтвердите пароль" />
+                    x:Name="PinCodeBtn"
+                    FontSize="20"
+                    MaxLength="4"
+                    Keyboard="Numeric"
+                    WidthRequest="50"/>
+                
                 <Frame
                 CornerRadius="30"
                 Padding="5"
@@ -42,7 +52,7 @@
 
                 <Label
                 x:Name="returns"
-                Text="Вернуться назад"
+                Text="Выйти из аккаунта"
                 FontSize="20"
                 FontAttributes="Bold"
                 HorizontalOptions="Center"
@@ -53,8 +63,8 @@
                     </Label.GestureRecognizers>
                 </Label>
 
-        </VerticalStackLayout>
-            </ScrollView>
+            </VerticalStackLayout>
+        </ScrollView>
 
     </Grid>
 </ContentPage>
