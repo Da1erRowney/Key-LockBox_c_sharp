@@ -26,11 +26,12 @@
                 CornerRadius="30"
                 Padding="5"
                 HasShadow="True"
-                HeightRequest="50"
+                HeightRequest="53"
                 WidthRequest="170">
                     <Button
                     x:Name="ConfirmationBtn"
                     Text="Подтвердить"
+                        BackgroundColor="Transparent"
                     Clicked="Confirmation"
                     WidthRequest="150"
                      FontAttributes="Bold"
