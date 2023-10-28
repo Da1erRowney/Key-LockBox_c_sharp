@@ -49,7 +49,7 @@ public partial class ConfirmationPinCode : ContentPage
         }
         else
         {
-            await DisplayAlert("Ошибка", "Не правильно введен пинкод", "OK");
+            await DisplayAlert("Ошибка", "Не правильно введен PIN code", "OK");
             return;
         }
     }
