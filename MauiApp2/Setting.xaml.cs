@@ -7,6 +7,7 @@ namespace MauiApp2
 {
     public partial class Setting : ContentPage
     {
+        private DatabaseServiceUser _databaseService;
         string CurrentUserEmail = SingUp.CurrentUserEmail;
         string CurrentUserPassword = SingUp.CurrentUserPassword;
 
@@ -75,8 +76,15 @@ namespace MauiApp2
 
         private async void ExitAccount(object sender, EventArgs e)
         {
-
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            _databaseService = new DatabaseServiceUser(databasePath);
+            User user = _databaseService.GetUserByEmail(CurrentUserEmail);
+            await DisplayAlert("Успех", user.StatusAccount, "OK");
+            user.StatusAccount = "Off";
+            _databaseService.UpdateUser(user);
+            await DisplayAlert("Успех", user.StatusAccount, "OK");
             await Navigation.PushModalAsync(new MainPage());
+
         }
 
         private async void OnGoBackTapped(object sender, EventArgs e)
