@@ -36,11 +36,19 @@ public partial class ChangeAccountDetails : ContentPage
     {
         string password = PasswordBtn.Text;
         string email = EmailBtn.Text;
+        string pincode = PinCodeBtn.Text;
 
-
-        if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email))
+        if (string.IsNullOrEmpty(password) || string.IsNullOrEmpty(email) || string.IsNullOrEmpty(pincode))
         {
             await DisplayAlert("Ошибка", "Не все поля заполнены", "OK");
+            return;
+        }
+
+        Regex regex = new Regex("^[0-9]{4}$"); // Проверяем, что пин-код состоит из 4 цифр
+
+        if (!regex.IsMatch(pincode))
+        {
+            await DisplayAlert("Ошибка", "PinCode должен содержать ровно 4 цифры.", "Ок");
             return;
         }
         if (password.Length < 8 || !HasLetterAndDigit(password))
@@ -55,7 +63,7 @@ public partial class ChangeAccountDetails : ContentPage
             // Обновление свойств с новыми значениями
             currentUser.Email = EmailBtn.Text;
             currentUser.Password = PasswordBtn.Text;
-
+            currentUser.PinCode = PinCodeBtn.Text;
             // Сохранение изменений в базе данных
             _databaseService.UpdateUser(currentUser);
             await DisplayAlert("Успех", "Данные успешно обновлены, перезайдите в аккаунт для принятия настроек", "ОК");
