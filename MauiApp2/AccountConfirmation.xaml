@@ -2,40 +2,33 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.AccountConfirmation">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
-            <Color x:Key="LabelTextColor">#000000</Color>
-            <Color x:Key="EntryPlaceholderColor">#808080</Color>
-            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
-            <Color x:Key="AccentColor">#007AFF</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
 
-        <ScrollView>
-            <StackLayout Spacing="20" Padding="30,0">
+        <RowDefinition Height="*" />
+        <RowDefinition Height="Auto" />
+
+    </Grid.RowDefinitions>
+            <ScrollView>
+        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
+
                 <Label
                     x:Name="UserLabel"
                     Text="Ваш аккаунт"
-                    FontSize="30"
+                    FontSize="45"
                     HorizontalOptions="Center"
-                    VerticalOptions="Start"
-                    TextColor="{StaticResource LabelTextColor}" />
+                    VerticalOptions="Start"/>
 
                 <Entry
                     x:Name="PasswordBtn"
-                    Placeholder="Подтвердите пароль"
-                    PlaceholderColor="{StaticResource EntryPlaceholderColor}" />
-
-                <Button
+                    Placeholder="Подтвердите пароль" />
+                <Frame
+                CornerRadius="30"
+                Padding="5"
+                HasShadow="True"
+                HeightRequest="50"
+                WidthRequest="170">
+                    <Button
                     x:Name="ConfirmationBtn"
                     Text="Подтвердить"
                     Clicked="Confirmation"
@@ -43,25 +36,24 @@
                      FontAttributes="Bold"
                     CornerRadius="30"
                     Margin="0,10"
-                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
-                    TextColor="{StaticResource LabelTextColor}"
                     FontSize="18" />
+                </Frame>
+
                 <Label
                 x:Name="returns"
                 Text="Вернуться назад"
                 FontSize="20"
-                     FontAttributes="Bold"
+                FontAttributes="Bold"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
-                Margin="0,10"
-                >
+                Margin="0,10" >
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnGoBackTapped" />
                     </Label.GestureRecognizers>
                 </Label>
-            </StackLayout>
-        </ScrollView>
 
-       
+        </VerticalStackLayout>
+            </ScrollView>
+
     </Grid>
 </ContentPage>

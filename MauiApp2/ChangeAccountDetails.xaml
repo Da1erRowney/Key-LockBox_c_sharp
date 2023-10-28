@@ -2,46 +2,41 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.ChangeAccountDetails">
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Color x:Key="PageBackgroundColor">#FFFFFF</Color>
-            <Color x:Key="LabelTextColor">#000000</Color>
-            <Color x:Key="EntryPlaceholderColor">#808080</Color>
-            <Color x:Key="ButtonBackgroundColor">#80FFFFFF</Color>
-            <Color x:Key="AccentColor">#007AFF</Color>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-
     <Grid>
+
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Image Source="background.jpg" Aspect="AspectFill" />
 
+        </Grid.RowDefinitions>
         <ScrollView>
-            <StackLayout Spacing="20" Padding="30,0">
+        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
+
+
+            
+          
                 <Label
                     Text="Редактирование данных"
-                    FontSize="40"
-                     FontAttributes="Bold"
+                    FontSize="45"
                     HorizontalOptions="Center"
-                    VerticalOptions="Start"
-                    TextColor="{StaticResource LabelTextColor}" />
+                    VerticalOptions="Start" />
 
                 <Entry
                     x:Name="EmailBtn"
-                    Placeholder="Ваша почта"
-                    PlaceholderColor="{StaticResource EntryPlaceholderColor}" />
+                    Placeholder="Ваша почта" />
 
                 <Entry
                     x:Name="PasswordBtn"
-                    Placeholder="Введите пароль"
-                    PlaceholderColor="{StaticResource EntryPlaceholderColor}" />
-
-                <Button
+                    Placeholder="Введите пароль"/>
+                    
+                <Frame
+                CornerRadius="30"
+                Padding="5"
+                HasShadow="True"
+                HeightRequest="50"
+                WidthRequest="170">
+                    <Button
                     x:Name="RenameBtn"
                     Text="Изменить"
                     Clicked="RenameData"
@@ -49,25 +44,29 @@
                     FontAttributes="Bold"
                     CornerRadius="30"
                     Margin="0,10"
-                    BackgroundColor="{StaticResource ButtonBackgroundColor}"
-                    TextColor="{StaticResource LabelTextColor}"
                     FontSize="18" />
-                <Label
+                    </Frame>
+
+                        <Label
                 x:Name="returns"
                 Text="Вернуться назад"
                 FontSize="20"
                  FontAttributes="Bold"
                 HorizontalOptions="Center"
                 VerticalOptions="End"
-                Margin="0,10"
-                TextColor="{StaticResource LabelTextColor}">
+                Margin="0,10">
                     <Label.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnGoBackTapped" />
                     </Label.GestureRecognizers>
                 </Label>
-            </StackLayout>
-        </ScrollView>
-
+                    
+            </VerticalStackLayout>
        
+           
+
+
+
+
+            </ScrollView>
     </Grid>
 </ContentPage>

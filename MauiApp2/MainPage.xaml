@@ -61,8 +61,8 @@
                     HorizontalOptions="Center"
                     BackgroundColor="Transparent" />
             </Frame>
-        
-        </VerticalStackLayout>
+          </VerticalStackLayout>
+      
     
         <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End">
             
