@@ -11,99 +11,99 @@
 
                 <Label
                     Text="Ваши данные"
-                    FontSize="40"
-                     FontAttributes="Bold"
+                    FontSize="45"
                     HorizontalOptions="Center"
                     VerticalOptions="Start" />
 
                 <Frame 
-                        CornerRadius="10"
-                        
-                        Padding="5">
-
-                    <Label 
+                    CornerRadius="10"
+                    
+                    Padding="5">
+                        <Label 
                             x:Name="Name"
                             Text="Название: Неизвестно"
+
                             FontSize="20"
-                           
                             VerticalOptions="Start" />
                 </Frame>
 
                 <Frame 
-                        CornerRadius="10"
-                       
-                        Padding="5">
-
+                    CornerRadius="10"
+                    WidthRequest="400"
+                    Padding="5">
                     <Label
                         x:Name="Login"
                         Text="Логин: Неизвестно"
                         FontSize="20"
-                        
-                        
-                    
-                    VerticalOptions="Start" />
+                        VerticalOptions="Start" />
                 </Frame>
 
                 <Frame 
-                        CornerRadius="10"
-                       
-                        Padding="5">
-                    <Label
-                     x:Name="Email"
-                    Text="Почта: Неизвестно"
-                     FontSize="20"
+                    CornerRadius="10"
                     
-                   
-                     
-                    VerticalOptions="Start" />
+                    Padding="5">
+                    <Label
+                        x:Name="Email"
+                        Text="Почта: Неизвестно"
+                        FontSize="20"
+                        VerticalOptions="Start" />
                 </Frame>
+                
                 <Frame 
-                        CornerRadius="10"
-                       
-                        Padding="5">
+                    CornerRadius="10"
+                    Padding="5">
                     <Label
-                     x:Name="Password"
-                    Text="Пароль: Неизвестно"
-                    FontSize="20"
-                    
-                   
-                   
-                    VerticalOptions="Start" />
+                        x:Name="Password"
+                        Text="Пароль: Неизвестно"
+                        FontSize="20"
+                        VerticalOptions="Start" />
                 </Frame>
 
                 <Frame 
-                        CornerRadius="10"
-                       
-                        Padding="5">
+                    CornerRadius="10"
+                    Padding="5">
                     <Label
-                     x:Name="OtherData"
-                    Text="Прочие данные: Неизвестно"
-                    FontSize="20"
-                   
-                   
-                    VerticalOptions="Start" />
+                        x:Name="OtherData"
+                        Text="Прочие данные: Неизвестно"
+                        FontSize="20"
+                        VerticalOptions="Start" />
                 </Frame>
 
 
 
+                <Frame
+                CornerRadius="30"
+                HeightRequest="50"
+                WidthRequest="105"
+                Padding="5"
+                HasShadow="True" >
 
-                <Button
+                    <Button
                     x:Name="RenamesBtn"
                     Text="Изменить"
                     Clicked="RenamesData"
-                    WidthRequest="100"
-                     FontAttributes="Bold"
+                    FontAttributes="Bold"
+                       BackgroundColor="Transparent"
                     CornerRadius="30"
                     Margin="0,10"/>
+                </Frame>
+                <Frame
+                CornerRadius="30"
+                HeightRequest="50"
+                WidthRequest="100"
+                    Margin="0,-10,0,-20"
+                Padding="5"
+                HasShadow="True" >
 
-                <Button
+                    <Button
                     x:Name="DeleteBtn"
                     Text="Удалить"
                     Clicked="DeleteData"
-                    WidthRequest="100"
                      FontAttributes="Bold"
+                        BackgroundColor="Transparent"
                     CornerRadius="30"
                     Margin="0,10"/>
+                    </Frame>
                 <Label
                     x:Name="returns"
                     Text="Вернуться назад"
