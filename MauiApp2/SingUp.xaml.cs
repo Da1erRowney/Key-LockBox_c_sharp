@@ -39,9 +39,7 @@ namespace MauiApp2
                 User user = _databaseService.GetUserByEmail(email);
                 await DisplayAlert("Успех", "Вы авторизовались", "OK");
                 BasicsPage basicsPage = new BasicsPage();
-                await DisplayAlert("Успех", user.StatusAccount, "OK");
                 user.StatusAccount = "On";
-                await DisplayAlert("Успех", user.StatusAccount, "OK");
                 _databaseService.UpdateUser(user); // Обновление записи пользователя в базе данных
                 await Navigation.PushModalAsync(basicsPage);
                 basicsPage.Unfocus();

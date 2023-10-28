@@ -79,10 +79,8 @@ namespace MauiApp2
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
             _databaseService = new DatabaseServiceUser(databasePath);
             User user = _databaseService.GetUserByEmail(CurrentUserEmail);
-            await DisplayAlert("Успех", user.StatusAccount, "OK");
             user.StatusAccount = "Off";
             _databaseService.UpdateUser(user);
-            await DisplayAlert("Успех", user.StatusAccount, "OK");
             await Navigation.PushModalAsync(new MainPage());
 
         }
