@@ -4,15 +4,10 @@
              x:Class="MauiApp2.ViewData"
              Title="ViewData">
     <Grid >
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <Image Source="background.jpg" Aspect="AspectFill" />
+        
         <ScrollView>
-            <StackLayout Spacing="20" Padding="30,0">
+
+            <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
                 <Label
                     Text="Ваши данные"
@@ -23,20 +18,20 @@
 
                 <Frame 
                         CornerRadius="10"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                        
                         Padding="5">
 
                     <Label 
                             x:Name="Name"
                             Text="Название: Неизвестно"
                             FontSize="20"
-                            TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                           
                             VerticalOptions="Start" />
                 </Frame>
 
                 <Frame 
                         CornerRadius="10"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                       
                         Padding="5">
 
                     <Label
@@ -44,47 +39,47 @@
                         Text="Логин: Неизвестно"
                         FontSize="20"
                         
-                        TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                        
                     
                     VerticalOptions="Start" />
                 </Frame>
 
                 <Frame 
                         CornerRadius="10"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                       
                         Padding="5">
                     <Label
                      x:Name="Email"
                     Text="Почта: Неизвестно"
                      FontSize="20"
                     
-                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                   
                      
                     VerticalOptions="Start" />
                 </Frame>
                 <Frame 
                         CornerRadius="10"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                       
                         Padding="5">
                     <Label
                      x:Name="Password"
                     Text="Пароль: Неизвестно"
                     FontSize="20"
                     
-                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                   
                    
                     VerticalOptions="Start" />
                 </Frame>
 
                 <Frame 
                         CornerRadius="10"
-                        BackgroundColor="{AppThemeBinding Light={StaticResource Gray200}, Dark={StaticResource Blue200Accent}}"
+                       
                         Padding="5">
                     <Label
                      x:Name="OtherData"
                     Text="Прочие данные: Неизвестно"
                     FontSize="20"
-                    TextColor="{AppThemeBinding Light={StaticResource Black}, Dark={StaticResource Black}}"
+                   
                    
                     VerticalOptions="Start" />
                 </Frame>
@@ -121,8 +116,8 @@
                         <TapGestureRecognizer Tapped="OnGoBackTapped" />
                     </Label.GestureRecognizers>
                 </Label>
+            </VerticalStackLayout>
 
-            </StackLayout>
         </ScrollView>
        
     </Grid>
