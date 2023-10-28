@@ -45,7 +45,7 @@
                     <Button
                     x:Name="RenamesBtn"
                     Text="Изменить"
-                    Clicked="RenamesData"
+                    Clicked="RenameData"
                     FontAttributes="Bold"
                        BackgroundColor="Transparent"
                     CornerRadius="30"

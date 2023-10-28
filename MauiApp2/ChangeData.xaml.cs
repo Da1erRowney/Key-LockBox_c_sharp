@@ -45,4 +45,6 @@ public partial class ChangeData : ContentPage
        
         Navigation.PushModalAsync(new BasicsPage());
     }
+
+   
 }
