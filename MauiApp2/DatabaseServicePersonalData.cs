@@ -1,6 +1,7 @@
 ﻿
 using SQLite;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace PersonalsData
@@ -57,6 +58,8 @@ namespace PersonalsData
         public string OtherData { get; set; }
         public string DateCreation { get; set; }
         public string LastModifiedDate { get; set; }
+
+        public string IconUrl { get; set; }
 
     }
 }

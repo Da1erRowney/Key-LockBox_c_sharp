@@ -48,13 +48,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\background.jpg" />
-	  <None Remove="Resources\Images\background.png" />
-	  <None Remove="Resources\Images\setting8.png" />
-	  <None Remove="Resources\Images\setting9.png" />
+	  <None Remove="Resources\Images\nvidia.png" />
+	  <None Remove="Resources\Images\odnoklassniki.png" />
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Dakov.Transliterator" Version="1.1.4" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
 		<PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.6" />

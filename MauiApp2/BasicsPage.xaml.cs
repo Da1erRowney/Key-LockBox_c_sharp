@@ -5,6 +5,14 @@ using System.ComponentModel;
 using System.Linq;
 using PersonalsData;
 using SQLite;
+using System.Reflection;
+using System.Data.Common;
+using System.IO;
+using System.Globalization;
+using System.Text.RegularExpressions;
+using Android.Icu.Text;
+
+
 
 namespace MauiApp2
 {
@@ -32,15 +40,191 @@ namespace MauiApp2
             CheckHintsBasics();
         }
 
-        private void InitializePersonalDataList()
+        private async void InitializePersonalDataList()
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
             DatabaseServicePersonalData databaseService = new DatabaseServicePersonalData(databasePath);
 
-            // Получите все персональные данные из базы данных
+
             List<PersonalData> allPersonalData = databaseService.GetAllPersonalData();
 
-            // Отфильтруйте данные, соответствующие текущему пользователю
+            foreach (var data in allPersonalData)
+            {
+                string nameicon = data.Name;
+                nameicon = nameicon.ToLower();
+                nameicon = Regex.Replace(nameicon, @"[\p{P}-[.]]+", "");
+                nameicon = Regex.Replace(nameicon, " ", "");
+                string nameicontranc = string.Empty;
+                // Replace "кс" with "x"
+                if (nameicon == "майкрософт")
+                {
+                    nameicon = "microsoft";
+                }
+
+                if (nameicon == "хром")
+                {
+                    nameicon = "chrome";
+                }
+
+                if (nameicon == "tictok")
+                {
+                    nameicon = "tiktok";
+                }
+
+                if (nameicon == "стим")
+                {
+                   nameicon = "steam";
+                }
+
+                if (nameicon == "юбисофт")
+                {
+                    nameicon = "ubisoft"; 
+                }
+                
+                if (nameicon == "вк" || nameicon == "вконтакте")
+                {
+                    nameicon = "vk";
+                }
+
+                if (nameicon == "ютуб")
+                {
+                    nameicon = "youtube";
+                }
+
+                if (nameicon == "али" || nameicon == "алиэкспрэс" || nameicon == "алиекспрес")
+                {
+                    nameicon = "aliexpress";
+                }
+                
+
+                nameicon = Regex.Replace(nameicon, @"кс", "x");
+
+                // Replace "ай" in the middle with "i"
+                nameicon = Regex.Replace(nameicon, @"(?<=\p{IsCyrillic})ай(?=\p{IsCyrillic})", "i");
+
+                // Replace "ай" at the end with "y"
+                nameicon = Regex.Replace(nameicon, @"(?<=\p{IsCyrillic})ай$", "y");
+                nameicon = Regex.Replace(nameicon, @"(?<=\p{IsCyrillic})эй$", "ay");
+                nameicon = Regex.Replace(nameicon, @"(?<=\p{IsCyrillic})ей$", "ay");
+
+                foreach (char c in nameicon)
+                {
+                    nameicontranc += TransliterateCharacter(c);
+                }
+
+                string TransliterateCharacter(char c)
+                {
+                    switch (c)
+                    {
+                        case 'а': return "a";
+                        case 'б': return "b";
+                        case 'в': return "v";
+                        case 'г': return "g";
+                        case 'д': return "d";
+                        case 'е': return "e";
+                        case 'ё': return "yo";
+                        case 'ж': return "zh";
+                        case 'з': return "z";
+                        case 'и': return "i";
+                        case 'й': return "y";
+                        case 'к': return "k";
+                        case 'л': return "l";
+                        case 'м': return "m";
+                        case 'н': return "n";
+                        case 'о': return "o";
+                        case 'п': return "p";
+                        case 'р': return "r"; 
+                        case 'с': return "s";
+                        case 'т': return "t";
+                        case 'у': return "u";
+                        case 'ф': return "f";
+                        case 'х': return "kh";
+                        case 'ц': return "ts";
+                        case 'ч': return "ch";
+                        case 'ш': return "sh";
+                        case 'щ': return "sch";
+                        case 'ъ': return "'";
+                        case 'ы': return "y";
+                        case 'ь': return "'";
+                        case 'э': return "e";
+                        case 'ю': return "yu";
+                        case 'я': return "ya";
+                        default: return c.ToString();
+                    }
+                }
+
+
+                var icon = new string[] 
+                {
+                    "dota2",
+                    "google",
+                    "googleplay",
+                    "instagram",
+                    "microsoft",
+                    "nvidia",
+                    "odnoklassniki",
+                    "opera",
+                    "pinterest",
+                    "spotify",
+                    "steam",
+                    "telegram",
+                    "tiktok",
+                    "viber",
+                    "visa",
+                    "vk",
+                    "whatsapp",
+                    "youtube",
+                    "discord",
+                    "twitter",
+                    "pornhub",
+                    "mobilelegends",
+                    "genshinimpact",
+                    "github",
+                    "drweb",
+                    "delphi",
+                    "chrome",
+                    "blender",
+                    "css",
+                    "javascript",
+                    "ea",
+                    "onedrive",
+                    "edge",
+                    "roblox",
+                    "totalcommander",
+                    "shazam",
+                    "appleappstore",
+                    "snapchat",
+                    "facebook",
+                    "kfc",
+                    "lamoda",
+                    "oz",
+                    "onliner",
+                    "kufar",
+                    "burgerking",
+                    "epicgames",
+                    "faceit",
+                    "blizzard",
+                    "soundcloud",
+                    "ubisoft",
+                    "rockstargames",
+                    "aliexpress",
+                    "yandex",
+                    "oplati"
+                };
+
+                if (icon.Contains(nameicontranc))
+                {
+                    data.IconUrl = $"{nameicontranc}.png";
+                }
+                else
+                {
+
+
+                    data.IconUrl = "noticon.png";
+                }
+            }
+
+
             PersonalDataList = allPersonalData
                 .Where(data => data.EmailUser == CurrentUserEmail)
                 .OrderBy(data => data.Name)
@@ -75,7 +259,7 @@ namespace MauiApp2
 
         private async void OnSettingsClicked(object sender, EventArgs e)
         {
-            //var settingPage = new Setting(SettingsButton);
+
             await Navigation.PushModalAsync(new Setting());
         }
 
@@ -93,8 +277,10 @@ namespace MauiApp2
                 await Navigation.PushModalAsync(new ViewData(tappedData));
             }
 
-            // Сбросьте выделение элемента
+
             PersonalDataListView.SelectedItem = null;
         }
     }
+
+
 }

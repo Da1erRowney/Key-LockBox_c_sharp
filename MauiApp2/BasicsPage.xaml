@@ -2,12 +2,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.BasicsPage">
 
-    <Grid>
+
+    <Grid >
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+        
 
         <Grid Grid.Row="0" BackgroundColor="Transparent">
             <Grid.ColumnDefinitions>
@@ -32,32 +34,55 @@
 
         <ScrollView Grid.Row="1">
             <ListView x:Name="PersonalDataListView"
-              ItemsSource="{Binding PersonalDataList}"
-              ItemTapped="OnItemTapped"
-              RowHeight="80">
+        ItemsSource="{Binding PersonalDataList}"
+        ItemTapped="OnItemTapped"
+                    
+        RowHeight="80">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <Frame 
-                           CornerRadius="100"
-                           Padding="14"
-                           Margin="5"
-                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
-                                <StackLayout Spacing="1">
-                                    <Label Text="{Binding Name}" FontSize="20"/>
-                                    <Label Text="{Binding Login}" FontSize="15"/>
+                        CornerRadius="100"
+                        Padding="14"
+                        Margin="5"
+                        BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+                                <Grid BackgroundColor="Transparent" >
+                                    
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <!-- Колонка для изображения -->
+                                        <ColumnDefinition Width="*" />
+                                        <!-- Колонка для текста -->
+                                    </Grid.ColumnDefinitions>
 
-                                    <!-- Добавьте другие связанные данные, которые хотите отображать -->
-                                </StackLayout>
+                                    <Image 
+                                        Source= "{Binding IconUrl}"
+                                         HeightRequest="40"
+                                        
+                                         WidthRequest="40"
+                                         Margin="0,0,10,0" />
+                                    <!-- Изображение в первой колонке с отступами справа -->
+
+                                    <StackLayout 
+                                Grid.Column="1"
+                                
+                                Spacing="1">
+                                        <Label Text="{Binding Name}" FontSize="20"/>
+                                        <Label Text="{Binding Login}" FontSize="15"/>
+
+                                        <!-- Добавьте другие связанные данные, которые хотите отображать -->
+                                    </StackLayout>
+                                </Grid>
                             </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-        </ScrollView>
+            </ScrollView>
 
-        <StackLayout Grid.Row="2"
+            <StackLayout Grid.Row="2"
+                      
                      HorizontalOptions="Center"
                      VerticalOptions="End">
             <Frame
