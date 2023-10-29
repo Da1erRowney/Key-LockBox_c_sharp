@@ -1,6 +1,8 @@
 using Microsoft.Maui.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using PersonalsData;
 using SQLite;
 
@@ -20,8 +22,6 @@ namespace MauiApp2
             }
         }
 
-        ///public ImageButton SettingsButton => SettingsBtn;
-
         public BasicsPage()
         {
             InitializeComponent();
@@ -35,14 +35,16 @@ namespace MauiApp2
         private void InitializePersonalDataList()
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
-            //string databasePath = @"C:\Users\Игорь Черненко\source\repos\MauiApp2\MauiApp2\personalData.db";
             DatabaseServicePersonalData databaseService = new DatabaseServicePersonalData(databasePath);
 
             // Получите все персональные данные из базы данных
             List<PersonalData> allPersonalData = databaseService.GetAllPersonalData();
 
             // Отфильтруйте данные, соответствующие текущему пользователю
-            PersonalDataList = allPersonalData.Where(data => data.EmailUser == CurrentUserEmail).ToList();
+            PersonalDataList = allPersonalData
+                .Where(data => data.EmailUser == CurrentUserEmail)
+                .OrderBy(data => data.Name)
+                .ToList();
 
             databaseService.CloseConnection();
         }
