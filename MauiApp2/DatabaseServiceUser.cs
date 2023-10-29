@@ -58,6 +58,8 @@ namespace MauiApp2
         public string HintsSetting { get; set; }
         public string HintsData { get; set; }
         public string PinCode { get; set; }
-        public string StatusAccount { get; set; }
+        public string StatusAccount { get; set; } 
+        public string ThemeApplication { get; set; }
+
     }
 }

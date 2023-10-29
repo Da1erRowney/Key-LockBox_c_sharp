@@ -78,7 +78,8 @@ namespace MauiApp2
                 HintsSetting = "NoN",
                 HintsData= "NoN",
                 PinCode="NoN",
-                StatusAccount = "Off"
+                StatusAccount = "Off",
+                ThemeApplication = "Light"
             };
             
              _databaseService.InsertUser(user);

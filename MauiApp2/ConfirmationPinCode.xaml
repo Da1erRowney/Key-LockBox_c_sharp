@@ -20,7 +20,7 @@
                     VerticalOptions="Start"/>
                 <Label
                    
-                    Text="Введите PIN code"
+                    Text="Введите PIN-код"
                     FontSize="30"
                     HorizontalOptions="Center"
                     VerticalOptions="Start"/>

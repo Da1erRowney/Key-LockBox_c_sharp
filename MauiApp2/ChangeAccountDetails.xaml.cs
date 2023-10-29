@@ -55,7 +55,7 @@ public partial class ChangeAccountDetails : ContentPage
 
         if (!regex.IsMatch(pincode))
         {
-            await DisplayAlert("Ошибка", "PIN code должен содержать ровно 4 цифры.", "Ок");
+            await DisplayAlert("Ошибка", "PIN-код должен содержать ровно 4 цифры.", "Ок");
             return;
         }
         if (password.Length < 8 || !HasLetterAndDigit(password))

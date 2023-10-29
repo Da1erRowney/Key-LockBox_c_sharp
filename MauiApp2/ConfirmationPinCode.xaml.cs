@@ -15,10 +15,13 @@ public partial class ConfirmationPinCode : ContentPage
     }
     private void UpdateUserLabel()
     {
-        
+       
+
         var userEmail = App.CurrentUserEmail;
         var labelText = $"Пользователь {userEmail}";
         UserLabel.Text = labelText;
+        
+       
     }
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {
@@ -49,7 +52,7 @@ public partial class ConfirmationPinCode : ContentPage
         }
         else
         {
-            await DisplayAlert("Ошибка", "Не правильно введен PIN code", "OK");
+            await DisplayAlert("Ошибка", "Не правильно введен PIN-код", "OK");
             return;
         }
     }

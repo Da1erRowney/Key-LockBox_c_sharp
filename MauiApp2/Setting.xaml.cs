@@ -35,8 +35,8 @@ namespace MauiApp2
             if (currentUser.HintsSetting == "NoN")
             {
                 // Всплывающее уведомление
-                DisplayAlert("Подсказка", "Принудительно вас просим создать собственный PIN code. Для этого нажмите Изменить данные учетной записи -> подтвердите свои данные и введите пинкод. ", "OK");
-                DisplayAlert("Подсказка", "Здесь вы можете изменить данные своей учетной записи, добавить PIN code для дальнейшего входа, сменить пользовательскую тему и выйти из аккаунта.", "OK");
+                DisplayAlert("Подсказка", "Принудительно вас просим создать собственный PIN-код. Для этого нажмите Изменить данные учетной записи -> подтвердите свои данные и введите пинкод. ", "OK");
+                DisplayAlert("Подсказка", "Здесь вы можете изменить данные своей учетной записи, добавить PIN-код для дальнейшего входа, сменить пользовательскую тему и выйти из аккаунта.", "OK");
                 // Обновите значение поля HintsBasics в базе данных
                 currentUser.HintsSetting = "Active";
                 databaseService.UpdateUser(currentUser);
@@ -47,17 +47,26 @@ namespace MauiApp2
         private async void OnThemeToggled(object sender, ToggledEventArgs e)
         {
             bool isDarkTheme = e.Value;
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            DatabaseServiceUser databaseService = new DatabaseServiceUser(databasePath);
+            User currentUser = databaseService.GetUserByEmail(CurrentUserEmail);
 
             if (isDarkTheme)
             {
+                currentUser.ThemeApplication = "Dark";
+
+                databaseService.UpdateUser(currentUser);
                 // Применить темную тему
                 Application.Current.UserAppTheme = AppTheme.Dark;
             }
             else
             {
                 // Применить светлую тему
+                currentUser.ThemeApplication = "Light";
+
+                databaseService.UpdateUser(currentUser);
                 Application.Current.UserAppTheme = AppTheme.Light;
-            }
+            }    
 
             await Navigation.PushAsync(new Setting());
             Navigation.RemovePage(this);

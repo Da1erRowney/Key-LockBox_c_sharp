@@ -25,6 +25,7 @@ public partial class App : Application
         User user = _databaseService.GetUserByStatusAccount("On");
         if (user != null && user.PinCode != "NoN")
         {
+            
             string userEmail = user.Email;
             string userPassword = user.Password;
             string userPinCode = user.PinCode;
@@ -32,7 +33,14 @@ public partial class App : Application
             CurrentUserEmail = userEmail;
             CurrentUserPassword = userPassword;
             CurrentUserPinCode = userPinCode;
-
+            if (user.ThemeApplication == "Dark")
+            {
+                Application.Current.UserAppTheme = AppTheme.Dark;
+            }
+            else if (user.ThemeApplication == "Light")
+            {
+                Application.Current.UserAppTheme = AppTheme.Light;
+            }
             MainPage = new ConfirmationPinCode();
         }
         else

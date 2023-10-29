@@ -40,6 +40,14 @@ namespace MauiApp2
                 await DisplayAlert("Успех", "Вы авторизовались", "OK");
                 BasicsPage basicsPage = new BasicsPage();
                 user.StatusAccount = "On";
+                if (user.ThemeApplication == "Dark")
+                {
+                    Application.Current.UserAppTheme = AppTheme.Dark;
+                }
+                else if (user.ThemeApplication == "Light")
+                {
+                    Application.Current.UserAppTheme = AppTheme.Light;
+                }
                 _databaseService.UpdateUser(user); // Обновление записи пользователя в базе данных
                 await Navigation.PushModalAsync(basicsPage);
                 basicsPage.Unfocus();
