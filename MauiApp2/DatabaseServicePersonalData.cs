@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿
+using SQLite;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -54,5 +55,8 @@ namespace PersonalsData
         public string Email { get; set; }
         public string Password { get; set; }
         public string OtherData { get; set; }
+        public string DateCreation { get; set; }
+        public string LastModifiedDate { get; set; }
+
     }
 }

@@ -53,6 +53,8 @@ public partial class AddPunct : ContentPage
         string password = EntryPassword.Text;
         string otherData = EntryOtherData.Text;
 
+        DateTime currentDate = DateTime.UtcNow;
+        DateTime newDate = currentDate.AddHours(+3);
         if (name != null)
         {
             
@@ -65,7 +67,9 @@ public partial class AddPunct : ContentPage
                 Email = email,
                 Login = login,
                 Password = password,
-                OtherData = otherData
+                OtherData = otherData,
+                DateCreation = newDate.ToString("yyyy-MM-dd HH:mm:ss"),
+                LastModifiedDate = "Не изменялся"
             };
 
             // Добавление данных в базу данных

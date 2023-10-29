@@ -19,6 +19,8 @@ namespace MauiApp2
             Email.Text = "Почта: " + selectedData.Email;
             Password.Text = "Пароль: " + selectedData.Password;
             OtherData.Text = "Прочие данные: " + selectedData.OtherData;
+            DataCreation.Text = "Дата создания: " + selectedData.DateCreation;
+            DataModification.Text = "Дата последнего изменения: " + selectedData.LastModifiedDate;
         }
         private void CheckHintsBasics()
         {
