@@ -17,42 +17,43 @@
             
         </Grid>
 
-        <ScrollView Grid.Row="0">
+        <ScrollView Grid.Row="0" >
             <ListView x:Name="PersonalDataListView"
         ItemsSource="{Binding PersonalDataList}"
         ItemTapped="OnItemTapped"
                     
-        RowHeight="80" Margin="0,0,0,10">
+        RowHeight="80" Margin="0,0,60,10"
+                      >
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <Frame 
-                        CornerRadius="100"
-                        Padding="14"
+                            <Frame   
+                         
+                        CornerRadius="50"
+                        Padding="15"
                         Margin="5"
+                                 Opacity="0.8"  
                         BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
                                 
                                 <Grid BackgroundColor="Transparent" >
                                     
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
-                                        <!-- Колонка для изображения -->
                                         <ColumnDefinition Width="*" />
-                                        <!-- Колонка для текста -->
                                     </Grid.ColumnDefinitions>
 
                                     <Image 
+ 
                                         Source= "{Binding IconUrl}"
                                          HeightRequest="40"
-                                        
                                          WidthRequest="40"
-                                         Margin="0,0,10,0" />
+                                         Margin="0,0,5,0" />
                                     <!-- Изображение в первой колонке с отступами справа -->
 
                                     <StackLayout 
                                 Grid.Column="1"
-                                Spacing="1">
+                                Spacing="0">
                                         <Label Text="{Binding Name}" FontSize="20" />
                                         <Label Text="{Binding Login}" FontSize="15" />
 
@@ -75,7 +76,8 @@
                 WidthRequest="60"
                 Padding="4"
                 CornerRadius="30"
-                HasShadow="True" >
+                HasShadow="True"
+                Opacity="0.8"  >
 
                 <Button 
                     x:Name="AddBtn"
@@ -96,6 +98,7 @@
             <Frame 
                 HeightRequest="60"
                 WidthRequest="60"
+                Opacity="0.8"  
                 Padding="4"
                 CornerRadius="30"
                 HasShadow="True" >

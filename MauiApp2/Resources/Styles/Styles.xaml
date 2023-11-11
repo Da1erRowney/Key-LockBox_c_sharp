@@ -186,8 +186,8 @@
     </Style>
 
     <Style TargetType="ListView">
-        <Setter Property="SeparatorColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
-        <Setter Property="RefreshControlColor" Value="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}" />
+        <Setter Property="SeparatorColor" Value="Transparent" />
+        <Setter Property="RefreshControlColor" Value="Transparent" />
     </Style>
 
     <Style TargetType="Picker">

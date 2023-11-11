@@ -22,13 +22,14 @@
                     HorizontalOptions="Center"
                     VerticalOptions="Start"/>
 
-                <Entry
-                    x:Name="EntryName"
-                    Placeholder="Введите название"/>
+                    <Entry
+                    Placeholder="Введите название"
+                    x:Name="EntryName"/>
 
-                <Entry
+                    <Entry
                     x:Name="EntryLogin"
                     Placeholder="Введите логин"/>
+
 
                 <Entry
                     x:Name="EntryEmail"

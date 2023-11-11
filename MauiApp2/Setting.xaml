@@ -14,9 +14,9 @@
                    AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" />
         <Label Text="Настройки" FontSize="35" VerticalOptions="Start" HorizontalOptions="Center" />
         <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="10,0" VerticalOptions="Center">
-           
 
-            <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+            <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0" Opacity="0.8">
 
                 <StackLayout >
                     <Label Text="Аккаунт" FontSize="22" VerticalOptions="Start" />
@@ -51,7 +51,7 @@
                 </StackLayout>
             </Frame>
 
-            <Frame BackgroundColor ="Black" CornerRadius="5" Padding="10" Margin="0,-10,0,0">
+            <Frame BackgroundColor ="Black" CornerRadius="5" Padding="10" Margin="0,-10,0,0" Opacity="0.8"  >
                
                     
                     <StackLayout >

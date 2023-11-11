@@ -19,9 +19,11 @@
 
                 <Frame 
                     CornerRadius="10"
-                    
+                    Opacity="0.9"
+                    HeightRequest="35"
                     Padding="5">
                         <Label 
+                            Margin="0,3,0,0"
                             x:Name="Name"
                             Text="Название: Неизвестно"
                             FontSize="15"
@@ -31,10 +33,13 @@
                 <Frame 
                     CornerRadius="10"
                     WidthRequest="400"
+                     Opacity="0.9"
+                    HeightRequest="35"
                     Padding="5"
                    >
                     <Label
                         x:Name="Login"
+                         Margin="0,3,0,0"
                         Text="Логин: Неизвестно"
                         FontSize="15"
                         VerticalOptions="Start" />
@@ -42,9 +47,12 @@
 
                 <Frame 
                     CornerRadius="10"
+                     Opacity="0.9"
+ HeightRequest="35"
                     Padding="5">
                     <Label
                         x:Name="Email"
+                         Margin="0,3,0,0"
                         Text="Почта: Неизвестно"
                         FontSize="15"
                         VerticalOptions="Start" />
@@ -52,9 +60,12 @@
                 
                 <Frame 
                     CornerRadius="10"
+                     Opacity="0.9"
+ HeightRequest="35"
                     Padding="5">
                     <Label
                         x:Name="Password"
+                         Margin="0,3,0,0"
                         Text="Пароль: Неизвестно"
                         FontSize="15"
                         VerticalOptions="Start" />
@@ -62,9 +73,12 @@
 
                 <Frame 
                     CornerRadius="10"
+                     Opacity="0.9"
+ HeightRequest="35"
                     Padding="5">
                     <Label
                         x:Name="OtherData"
+                         Margin="0,3,0,0"
                         Text="Прочие данные: Неизвестно"
                         FontSize="15"
                         VerticalOptions="Start" />
@@ -72,18 +86,24 @@
 
                 <Frame 
                     CornerRadius="10"
+                     Opacity="0.9"
+ HeightRequest="35"
                     Padding="5">
                     <Label
                         x:Name="DataCreation"
+                         Margin="0,3,0,0"
                         Text="Дата создания: Неизвестно"
                         FontSize="15"
                         VerticalOptions="Start" />
                 </Frame>
                                 
                  <Frame 
+                      Opacity="0.9"
+ HeightRequest="35"
                     CornerRadius="10"
                     Padding="5">
                     <Label
+                         Margin="0,3,0,0"
                         x:Name="DataModification"
                         Text="Дата последнего изменения: Неизвестно"
                         FontSize="15"
