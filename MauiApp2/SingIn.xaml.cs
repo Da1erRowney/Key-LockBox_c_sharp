@@ -29,7 +29,23 @@ namespace MauiApp2
 
 
         }
+        [Obsolete]
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    // Изменить свойство IsAnimationPlaying на True
+                    gif.IsAnimationPlaying = true;
+                });
+
+                return false; // Остановить таймер после одного выполнения
+            });
+        }
         private async void OnCreateClicked(object sender, EventArgs e)
         {
             string password1 = EntryPassword1.Text;
@@ -116,6 +132,11 @@ namespace MauiApp2
         private async void OnGoBackTapped(object sender, EventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private void OnGoBackTapped(object sender, TappedEventArgs e)
+        {
+
         }
     }
 }

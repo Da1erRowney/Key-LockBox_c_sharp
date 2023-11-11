@@ -1,77 +1,54 @@
-﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" 
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
-             x:Class="MauiApp2.MainPage">
-
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="MauiApp2.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="20" />
+                <Setter Property="Margin" Value="0,10" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="LineBreakMode" Value="WordWrap" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="170" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="BackgroundColor" Value="Transparent" />
+            </Style>
+            <Style TargetType="Frame">
+                <Setter Property="HeightRequest" Value="50" />
+                <Setter Property="WidthRequest" Value="170" />
+                <Setter Property="CornerRadius" Value="30" />
+                <Setter Property="Padding" Value="5" />
+                <Setter Property="HasShadow" Value="True" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <Grid>
-        
         <Grid.RowDefinitions>
-            
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            
         </Grid.RowDefinitions>
 
-        <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
-            
-            <Label
-                Text="Ваше хранилище"
-                SemanticProperties.HeadingLevel="Level2"
-                FontSize="45"
-                HorizontalOptions="Center"
-                LineBreakMode="WordWrap" />
-            
-            <Label
-                Text="Авторизуйтесь для получения функционала"
-                SemanticProperties.HeadingLevel="Level2"
-                FontSize="20"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                LineBreakMode="WordWrap" />
+        <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
 
-        </VerticalStackLayout>
-        
-        <VerticalStackLayout Grid.Row="0" Spacing="10" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
-            
-            <Frame
-                CornerRadius="30"
-                Padding="5"
-                HasShadow="True"
-                HeightRequest="50"
-                WidthRequest="170">
-
-                <Button
-                     x:Name="RegisterBtn"
-                     Text="Регистрация"
-                     Clicked="OnRegisterClicked"
-                     HorizontalOptions="Center"
-                     BackgroundColor="Transparent"/>
+        <StackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
+            <Label Text="Ваше хранилище" SemanticProperties.HeadingLevel="Level2" FontSize="45" />
+            <Label Text="Авторизуйтесь для получения функционала" SemanticProperties.HeadingLevel="Level2" FontSize="20" FontAttributes="Bold" />
+        </StackLayout>
+        <StackLayout Grid.Row="0" Spacing="10" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
+            <Frame CornerRadius="30" Padding="5" HasShadow="True">
+                <Button x:Name="RegisterBtn" Text="Регистрация" Clicked="OnRegisterClicked" />
             </Frame>
-
-            <Frame
-                CornerRadius="30"
-                HeightRequest="50"
-                WidthRequest="100"
-                Padding="5"
-                HasShadow="True" >
-
-                <Button
-                    x:Name="LoginBtn"
-                    Text="Войти"
-                    Clicked="OnLoginClicked"
-                    HorizontalOptions="Center"
-                    BackgroundColor="Transparent" />
+            <Frame CornerRadius="30" Padding="5" HasShadow="True">
+                <Button x:Name="LoginBtn" Text="Войти" Clicked="OnLoginClicked" AutomationProperties.IsInAccessibleTree="False" />
+                
             </Frame>
-          </VerticalStackLayout>
-      
-    
-        <StackLayout Grid.Row="1" HorizontalOptions="Center" VerticalOptions="End">
-            
-            <Label
-                Text="Разработано @DalerRowney"
-                FontSize="15" />
-            
         </StackLayout>
         
+        <StackLayout HorizontalOptions="Center" VerticalOptions="End">
+            <Label Text="Разработано @DalerRowney" FontSize="15" />
+        </StackLayout>
     </Grid>
-    
 </ContentPage>

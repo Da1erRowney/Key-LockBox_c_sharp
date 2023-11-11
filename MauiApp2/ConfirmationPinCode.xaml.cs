@@ -8,11 +8,28 @@ public partial class ConfirmationPinCode : ContentPage
 	{
 		InitializeComponent();
 	}
+    [Obsolete]
     protected override void OnAppearing()
     {
         base.OnAppearing();
+
+        // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+        Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                // Изменить свойство IsAnimationPlaying на True
+                gif.IsAnimationPlaying = true;
+            });
+
+            return false; // Остановить таймер после одного выполнения
+        });
+        base.OnAppearing();
         UpdateUserLabel();
+
     }
+
+  
     private void UpdateUserLabel()
     {
        

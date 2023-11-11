@@ -7,8 +7,9 @@
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
+            <Image x:Name="gif" Grid.Row ="0" Source="mainbackground.gif" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" />
+        <VerticalStackLayout  Spacing="20" Padding="10,0">
 
-        <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="10,0">
             <Label Text="Настройки" FontSize="35" VerticalOptions="Start" />
 
             <Frame BackgroundColor="Transparent" CornerRadius="0" Padding="10" WidthRequest="465">

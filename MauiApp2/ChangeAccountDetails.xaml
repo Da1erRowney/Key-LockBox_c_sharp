@@ -29,7 +29,11 @@
                 <Entry
                     x:Name="PasswordBtn"
                     Placeholder="Введите пароль"/>
-
+			<Label
+							   Text="PIN-код"
+							   FontSize="15"
+							   HorizontalOptions="Center"
+							   VerticalOptions="Start" />
                 <Entry
                     x:Name="PinCodeBtn"
                     WidthRequest="50"

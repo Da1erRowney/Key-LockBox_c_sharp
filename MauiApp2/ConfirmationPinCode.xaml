@@ -9,6 +9,7 @@
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
+        <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
         <ScrollView>
             <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
@@ -17,7 +18,7 @@
                     Text="Ваш аккаунт"
                     FontSize="30"
                     HorizontalOptions="Center"
-                    VerticalOptions="Start"/>
+                    VerticalOptions="Start" />
                 <Label
                    
                     Text="Введите PIN-код"
@@ -37,7 +38,7 @@
                 Padding="5"
                 HasShadow="True"
                 HeightRequest="53"
-                WidthRequest="170">
+                WidthRequest="170" >
                     <Button
                     x:Name="ConfirmationBtn"
                     Text="Подтвердить"
@@ -47,7 +48,7 @@
                      FontAttributes="Bold"
                     CornerRadius="30"
                     Margin="0,10"
-                    FontSize="18" />
+                    FontSize="18"  />
                 </Frame>
 
                 <Label

@@ -10,7 +10,7 @@
             <RowDefinition Height="Auto" />
             
         </Grid.RowDefinitions>
-        
+        <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
         <Label
              Text="Вход"
              FontSize="45"

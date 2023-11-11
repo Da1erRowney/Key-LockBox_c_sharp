@@ -48,6 +48,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\mainbackground.gif" />
 	  <None Remove="Resources\Images\nvidia.png" />
 	  <None Remove="Resources\Images\odnoklassniki.png" />
 	</ItemGroup>
@@ -113,5 +114,7 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>
+
+	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionMauiApp2HideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

@@ -18,7 +18,23 @@ namespace MauiApp2
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
             _databaseService = new DatabaseServiceUser(databasePath);
         }
+        [Obsolete]
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    // Изменить свойство IsAnimationPlaying на True
+                    gif.IsAnimationPlaying = true;
+                });
+
+                return false; // Остановить таймер после одного выполнения
+            });
+        }
         private async void OnComeClicked(object sender, EventArgs e)
         {
             string password1 = EntryPassword1.Text;

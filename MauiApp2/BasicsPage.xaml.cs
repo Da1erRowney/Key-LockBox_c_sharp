@@ -10,7 +10,6 @@ using System.Data.Common;
 using System.IO;
 using System.Globalization;
 using System.Text.RegularExpressions;
-using Android.Icu.Text;
 
 
 
@@ -39,7 +38,23 @@ namespace MauiApp2
             // Проверка значения поля HintsBasics в базе данных
             CheckHintsBasics();
         }
+        [Obsolete]
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
 
+            // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    // Изменить свойство IsAnimationPlaying на True
+                    gif.IsAnimationPlaying = true;
+                });
+
+                return false; // Остановить таймер после одного выполнения
+            });
+        }
         private async void InitializePersonalDataList()
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
@@ -279,6 +294,11 @@ namespace MauiApp2
 
 
             PersonalDataListView.SelectedItem = null;
+        }
+
+        private void OnSettingsClicked(object sender, TappedEventArgs e)
+        {
+
         }
     }
 
