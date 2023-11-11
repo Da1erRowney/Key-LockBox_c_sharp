@@ -17,23 +17,26 @@
             
         </Grid>
 
-        <ScrollView Grid.Row="0" >
-            <ListView x:Name="PersonalDataListView"
-        ItemsSource="{Binding PersonalDataList}"
-        ItemTapped="OnItemTapped"
-                    
-        RowHeight="80" Margin="0,0,60,10"
-                      >
+        <ScrollView Grid.Row="0">
+            <ListView 
+                x:Name="PersonalDataListView"
+                ItemsSource="{Binding PersonalDataList}"
+                ItemTapped="OnItemTapped"  
+                RowHeight="100"
+                VerticalOptions="Center" 
+                HorizontalOptions="Start"
+                Margin="5,0,60,10">
 
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCell>
-                            <Frame   
+                        <ViewCell >
+                            <Frame 
                          
-                        CornerRadius="50"
-                        Padding="15"
+                        CornerRadius="5"
+                        Padding="5"
                         Margin="5"
-                                 Opacity="0.8"  
+                                
+                           Opacity="0.8"  
                         BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
                                 
                                 <Grid BackgroundColor="Transparent" >
@@ -46,16 +49,17 @@
                                     <Image 
  
                                         Source= "{Binding IconUrl}"
-                                         HeightRequest="40"
-                                         WidthRequest="40"
-                                         Margin="0,0,5,0" />
+                                         HeightRequest="50"
+                                         WidthRequest="50"
+                                         Margin="5,0,15,0" />
                                     <!-- Изображение в первой колонке с отступами справа -->
 
                                     <StackLayout 
                                 Grid.Column="1"
                                 Spacing="0">
-                                        <Label Text="{Binding Name}" FontSize="20" />
-                                        <Label Text="{Binding Login}" FontSize="15" />
+                                        <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" />
+                                        <Label Text="{Binding Login}" FontSize="15" Margin="0,5,0,0"/>
+                                        <Label Text="{Binding DateCreation}" FontSize="15" />
 
                                         <!-- Добавьте другие связанные данные, которые хотите отображать -->
                                     </StackLayout>
@@ -75,7 +79,7 @@
                 HeightRequest="60"
                 WidthRequest="60"
                 Padding="4"
-                CornerRadius="30"
+                CornerRadius="5"
                 HasShadow="True"
                 Opacity="0.8"  >
 
@@ -83,6 +87,7 @@
                     x:Name="AddBtn"
                     Text="+"
                     WidthRequest="60"
+                    Opacity="0.8"
                     HeightRequest="60"
                     Clicked="OnAddClicked"
                     FontSize="30"
@@ -94,17 +99,18 @@
             
 
         </StackLayout>
-        <StackLayout Grid.Row="2" HorizontalOptions="End" VerticalOptions="Start">
+        <StackLayout Grid.Row="2" HorizontalOptions="End" VerticalOptions="Start" Margin="0,5,0,0">
             <Frame 
                 HeightRequest="60"
                 WidthRequest="60"
                 Opacity="0.8"  
                 Padding="4"
-                CornerRadius="30"
+                CornerRadius="5"
                 HasShadow="True" >
                 <Button 
                     x:Name="SettingsBtn"
                     Text="⚙"
+                    Opacity="0.8"
                     WidthRequest="60"
                     HeightRequest="60"
                     Clicked="OnSettingsClicked"

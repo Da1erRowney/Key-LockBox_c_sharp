@@ -243,6 +243,7 @@ namespace MauiApp2
             PersonalDataList = allPersonalData
                 .Where(data => data.EmailUser == CurrentUserEmail)
                 .OrderBy(data => data.Name)
+                .OrderBy(data => data.DateCreation)
                 .ToList();
 
             databaseService.CloseConnection();
