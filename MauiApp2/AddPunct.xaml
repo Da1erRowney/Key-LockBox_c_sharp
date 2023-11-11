@@ -11,7 +11,7 @@
     </ContentPage.Resources>
     <ScrollView>
         <Grid>
-            <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
+            <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill"/>
             <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
                 <Label
