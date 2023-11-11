@@ -117,6 +117,14 @@ namespace MauiApp2
             await Navigation.PushModalAsync(basicsPage);
         }
 
+        private async void DeleteAccount(object sender, EventArgs e)
+        {
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            _databaseService = new DatabaseServiceUser(databasePath);
+            _databaseService.DeleteUserByEmail(CurrentUserEmail);
+            await Navigation.PushModalAsync(new MainPage());
+        }
+
         private void DeleteAccount(object sender, TappedEventArgs e)
         {
 

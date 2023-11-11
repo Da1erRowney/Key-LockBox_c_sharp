@@ -46,7 +46,14 @@ namespace MauiApp2
         {
             _connection.Update(user);
         }
-
+        public void DeleteUserByEmail(string email)
+        {
+            var user = GetUserByEmail(email);
+            if (user != null)
+            {
+                _connection.Delete<User>(user.Email);
+            }
+        }
     }
 
     public class User
