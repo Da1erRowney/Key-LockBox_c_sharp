@@ -4,6 +4,7 @@
             <Style TargetType="Label">
                 <Setter Property="FontSize" Value="20" />
                 <Setter Property="Margin" Value="0,10" />
+                <Setter Property="TextColor" Value="White" />
                 <Setter Property="HorizontalOptions" Value="Center" />
                 <Setter Property="LineBreakMode" Value="WordWrap" />
             </Style>

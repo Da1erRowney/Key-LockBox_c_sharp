@@ -48,6 +48,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\basicsbackground.gif" />
 	  <None Remove="Resources\Images\mainbackground.gif" />
 	  <None Remove="Resources\Images\nvidia.png" />
 	  <None Remove="Resources\Images\odnoklassniki.png" />

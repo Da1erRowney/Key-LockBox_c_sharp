@@ -22,6 +22,23 @@ namespace MauiApp2
             DataCreation.Text = "Дата создания: " + selectedData.DateCreation;
             DataModification.Text = "Дата последнего изменения: " + selectedData.LastModifiedDate;
         }
+        [Obsolete]
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    // Изменить свойство IsAnimationPlaying на True
+                    gif.IsAnimationPlaying = true;
+                });
+
+                return false; // Остановить таймер после одного выполнения
+            });
+        }
         private void CheckHintsBasics()
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");

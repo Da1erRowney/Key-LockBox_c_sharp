@@ -2,6 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.AccountConfirmation">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
 
@@ -9,7 +17,8 @@
         <RowDefinition Height="Auto" />
 
     </Grid.RowDefinitions>
-            <ScrollView>
+        <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
+        <ScrollView>
         <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
                 <Label

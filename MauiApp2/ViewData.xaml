@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.ViewData"
              Title="ViewData">
+   
     <Grid >
-        
+        <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
         <ScrollView>
 
             <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
@@ -12,6 +13,7 @@
                 <Label
                     Text="Ваши данные"
                     FontSize="45"
+                    TextColor="White"
                     HorizontalOptions="Center"
                     VerticalOptions="Start" />
 
@@ -29,7 +31,8 @@
                 <Frame 
                     CornerRadius="10"
                     WidthRequest="400"
-                    Padding="5">
+                    Padding="5"
+                   >
                     <Label
                         x:Name="Login"
                         Text="Логин: Неизвестно"
@@ -121,6 +124,7 @@
                     Margin="0,10"/>
                     </Frame>
                 <Label
+                    TextColor="White"
                     x:Name="returns"
                     Text="Вернуться назад"
                     FontSize="20"

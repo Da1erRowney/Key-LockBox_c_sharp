@@ -10,6 +10,7 @@
             <RowDefinition Height="Auto" />
 
         </Grid.RowDefinitions>
+        <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
         <ScrollView>
         <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
@@ -31,7 +32,7 @@
                     Placeholder="Введите пароль"/>
 			<Label
 							   Text="PIN-код"
-							   FontSize="15"
+							   FontSize="25"
 							   HorizontalOptions="Center"
 							   VerticalOptions="Start" />
                 <Entry

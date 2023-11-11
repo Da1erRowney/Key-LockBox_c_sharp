@@ -16,7 +16,23 @@ public partial class ChangeData : ContentPage
         EntryPassword.Text =selectedData.Password;
         EntryOtherData.Text = selectedData.OtherData;
     }
+    [Obsolete]
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
 
+        // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+        Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                // Изменить свойство IsAnimationPlaying на True
+                gif.IsAnimationPlaying = true;
+            });
+
+            return false; // Остановить таймер после одного выполнения
+        });
+    }
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {
        await Navigation.PopModalAsync();

@@ -3,10 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.ChangeData"
              Title="ChangeData">
-   
 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     <ScrollView>
         <Grid>
+            <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
             <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start">
 
                 <Label

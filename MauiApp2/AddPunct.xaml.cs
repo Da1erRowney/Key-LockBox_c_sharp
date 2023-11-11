@@ -12,10 +12,22 @@ public partial class AddPunct : ContentPage
         connection.CreateTable<PersonalData>(); // Создание таблицы PersonalData
         return connection;
     }
-
+    [Obsolete]
     protected override void OnAppearing()
     {
         base.OnAppearing();
+
+        // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+        Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                // Изменить свойство IsAnimationPlaying на True
+                gif.IsAnimationPlaying = true;
+            });
+
+            return false; // Остановить таймер после одного выполнения
+        });
         string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
         //string databasePath = @"C:\Users\Игорь Черненко\source\repos\MauiApp2\MauiApp2\personalData.db";
         _databaseService = new DatabaseServicePersonalData(databasePath);

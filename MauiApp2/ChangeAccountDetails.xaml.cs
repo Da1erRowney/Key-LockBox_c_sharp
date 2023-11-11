@@ -24,12 +24,25 @@ public partial class ChangeAccountDetails : ContentPage
         _databaseService = new DatabaseServiceUser(databasePath);
 
     }
+    [Obsolete]
     protected override void OnAppearing()
     {
         base.OnAppearing();
+
+        // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+        Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                // Изменить свойство IsAnimationPlaying на True
+                gif.IsAnimationPlaying = true;
+            });
+
+            return false; // Остановить таймер после одного выполнения
+        });
         UpdateUserEntry();
     }
-
+   
     private void UpdateUserEntry()
     {
         User user = _databaseService.GetUserByEmail(CurrentUserEmail);

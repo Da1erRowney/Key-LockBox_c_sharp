@@ -24,6 +24,23 @@ namespace MauiApp2
             InitializeComponent();
             CheckHintsBasics();
         }
+        [Obsolete]
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+            {
+                Device.BeginInvokeOnMainThread(() =>
+                {
+                    // Изменить свойство IsAnimationPlaying на True
+                    gif.IsAnimationPlaying = true;
+                });
+
+                return false; // Остановить таймер после одного выполнения
+            });
+        }
         private void CheckHintsBasics()
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
@@ -100,6 +117,9 @@ namespace MauiApp2
             await Navigation.PushModalAsync(basicsPage);
         }
 
-       
+        private void DeleteAccount(object sender, TappedEventArgs e)
+        {
+
+        }
     }
 }

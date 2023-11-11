@@ -17,12 +17,25 @@ public partial class AccountConfirmation : ContentPage
 	{
 		InitializeComponent();
 	}
+    [Obsolete]
     protected override void OnAppearing()
     {
         base.OnAppearing();
-        UpdateUserLabel();
-    }
 
+        // Отложить изменение свойства IsAnimationPlaying через 3 секунды
+        Device.StartTimer(TimeSpan.FromSeconds(1), () =>
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                // Изменить свойство IsAnimationPlaying на True
+                gif.IsAnimationPlaying = true;
+            });
+
+            return false; // Остановить таймер после одного выполнения
+        });
+        UpdateUserLabel();
+
+    }
     private void UpdateUserLabel()
     {
         var userEmail = !string.IsNullOrEmpty(CurrentUserEmail) ? CurrentUserEmail : "Unknown";
