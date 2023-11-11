@@ -75,6 +75,9 @@
 	  <Compile Update="AccountConfirmation.xaml.cs">
 	    <DependentUpon>AccountConfirmation.xaml</DependentUpon>
 	  </Compile>
+	  <Compile Update="Information.xaml.cs">
+	    <DependentUpon>Information.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="ViewData.xaml.cs">
 	    <DependentUpon>ViewData.xaml</DependentUpon>
 	  </Compile>
@@ -100,6 +103,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ConfirmationPinCode.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Information.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="ViewData.xaml">

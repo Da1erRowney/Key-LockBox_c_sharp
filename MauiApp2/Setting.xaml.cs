@@ -125,9 +125,12 @@ namespace MauiApp2
             await Navigation.PushModalAsync(new MainPage());
         }
 
-        private void DeleteAccount(object sender, TappedEventArgs e)
-        {
 
+        private async void informationPage(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushModalAsync(new Information());
         }
+
+       
     }
 }

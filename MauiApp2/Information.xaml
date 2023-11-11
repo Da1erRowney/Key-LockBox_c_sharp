@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp2.Information">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style TargetType="Label">
+                <Setter Property="TextColor" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ScrollView>
+    <Grid >
+        
+
+        <Image Grid.Row ="0" x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
+            <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="10,0" VerticalOptions="Start">
+
+                <Label Text="Хранилище паролей и персональных данных" FontSize="35" VerticalOptions="Start" HorizontalOptions="Center" />
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Приложение Хранилище паролей и персональных данных разработано для обеспечения удобного и безопасного хранения и использования персональных данных пользователей, таких как пароли, логины, почты и другая важная информация. Оно помогает пользователям не забывать свои данные и обеспечивает их сохранность и конфиденциальность." FontSize="17" VerticalOptions="End" Margin="0,0,0,0"/>
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Авторизация и регистрация в системе:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи могут создать новую учетную запись, указав свою электронную почту и пароль." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Зарегистрированные пользователи могут войти в систему, используя свои учетные данные." FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Добавление дел с личными данными:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи могут добавлять личные данные, такие как пароли, логины, почты и другую информацию, связанную с учетными записями и персональными данными." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Просмотр личных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи могут просматривать сохраненные личные данные, отображаемые в удобном и структурированном виде. " FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Изменение личных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи имеют возможность изменять свои личные данные, такие как пароли, логины, почты и другую информацию." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Удаление личных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи могут удалять свои личные данные, которые больше не требуются или устарели." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Изменение пользовательских данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи имеют возможность обновлять свои пользовательские данные, такие как почту, пароль профиля и PIN-код." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Выход из учетной записи:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи могут безопасно выйти из своей учетной записи для обеспечения конфиденциальности и безопасности." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Отображение подсказок для вновь созданных учетных записей:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="При создании новой учетной записи пользователи получают полезные подсказки и рекомендации для настройки и использования приложения." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Система PIN-кодов для повторного входа в приложение:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи могут настроить систему PIN-кодов для обеспечения дополнительного уровня безопасности при повторном входе в приложение." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Удаление аккаунта:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи имеют возможность удалить свою учетную запись полностью, если они больше не хотят использовать приложение или хотят удалить все свои личные данные." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Приложение" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Название: Ваше хранилище" FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Разрабатывал: Chernenko Konstantin (Daler Rowney)" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+                        <Label Text="Язык: C#" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+                        <Label Text="Платформа разработки: .NET MAUI" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+                        <Label Text="Лицензия: MIT" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+
+                    </StackLayout>
+                </Frame>
+
+            <Label x:Name="returns" Text="Вернуться назад" FontAttributes="Bold" FontSize="20"
+       VerticalOptions="End" Margin="0,10" HorizontalOptions="Center">
+            <Label.GestureRecognizers>
+                <TapGestureRecognizer Tapped="OnGoBackTapped" />
+            </Label.GestureRecognizers>
+        </Label>
+            </VerticalStackLayout>
+    </Grid>
+    
+    </ScrollView>
+
+</ContentPage>
