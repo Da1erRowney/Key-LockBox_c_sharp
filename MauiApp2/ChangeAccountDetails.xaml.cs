@@ -45,6 +45,7 @@ public partial class ChangeAccountDetails : ContentPage
         PasswordBtn.Text = CurrentUserPassword;
         EmailBtn.Text = CurrentUserEmail;
         PinCodeBtn.Text = user.PinCode;
+        saveCode.Text = "Резервный код восстановления: " + user.SaveKey;
     }
 
 

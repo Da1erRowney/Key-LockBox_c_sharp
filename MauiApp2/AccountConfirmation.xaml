@@ -36,6 +36,7 @@
         <Frame
             CornerRadius="5"
             Padding="5"
+            Opacity="0.8"
             HasShadow="True"
             HeightRequest="53"
             WidthRequest="170">

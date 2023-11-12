@@ -4,8 +4,8 @@
 
 
     <Grid  BackgroundColor="Transparent">
-        
-        <Image x:Name="gif" Grid.Row ="1" Source="basicsbackground.gif" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" />
+
+        <Image x:Name="gif" Grid.Row ="1" Source="mainbackground.gif" Aspect="AspectFill" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" />
 
         <Grid Grid.Row="0" BackgroundColor="Transparent">
             <Grid.ColumnDefinitions>
@@ -31,32 +31,26 @@
                     <DataTemplate>
                         <ViewCell >
                             <Frame 
-                         
-                        CornerRadius="5"
-                        Padding="5"
-                        Margin="5"
-                                
-                           Opacity="0.8"  
-                        BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
-                                
+                                CornerRadius="5"
+                                Padding="5"
+                                Margin="5"
+                                Opacity="0.8"  
+                                BackgroundColor="{AppThemeBinding Light={StaticResource White}, Dark={StaticResource Black}}">
+
                                 <Grid BackgroundColor="Transparent" >
-                                    
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto" />
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
-
                                     <Image 
- 
-                                        Source= "{Binding IconUrl}"
+                                         Source= "{Binding IconUrl}"
                                          HeightRequest="50"
                                          WidthRequest="50"
                                          Margin="5,0,15,0" />
                                     <!-- Изображение в первой колонке с отступами справа -->
-
                                     <StackLayout 
-                                Grid.Column="1"
-                                Spacing="0">
+                                        Grid.Column="1"
+                                        Spacing="0">
                                         <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" />
                                         <Label Text="{Binding Login}" FontSize="15" Margin="0,5,0,0"/>
                                         <Label Text="{Binding DateCreation}" FontSize="15" />
@@ -71,10 +65,10 @@
             </ListView>
             </ScrollView>
 
-            <StackLayout Grid.Row="2"
-                      
-                     HorizontalOptions="Center"
-                     VerticalOptions="End" >
+            <StackLayout 
+                Grid.Row="2"
+                HorizontalOptions="Center"
+                VerticalOptions="End" >
             <Frame 
                 HeightRequest="60"
                 WidthRequest="60"
@@ -99,7 +93,11 @@
             
 
         </StackLayout>
-        <StackLayout Grid.Row="2" HorizontalOptions="End" VerticalOptions="Start" Margin="0,5,0,0">
+        <StackLayout 
+            Grid.Row="2" 
+            HorizontalOptions="End" 
+            VerticalOptions="Start"
+            Margin="0,5,0,0">
             <Frame 
                 HeightRequest="60"
                 WidthRequest="60"
