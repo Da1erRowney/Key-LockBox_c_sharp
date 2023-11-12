@@ -62,6 +62,7 @@ namespace MauiApp2
         public string StatusAccount { get; set; }
         public string ThemeApplication { get; set; }
         public string StatusSort { get; set; }
+        public string SaveKey { get; set; }
 
     }
 }

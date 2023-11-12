@@ -70,7 +70,7 @@ namespace MauiApp2
             }
             else
             {
-                await DisplayAlert("Ошибка", "Неправильный email или пароль", "OK");
+                await DisplayAlert("Ошибка", "Неправильный email или код восстановления", "OK");
             }
         }
 
@@ -109,6 +109,11 @@ namespace MauiApp2
         private async void OnGoBackTapped(object sender, TappedEventArgs e)
         {
             await Navigation.PopModalAsync();
+        }
+
+        private async void OnRecoveryKey(object sender, TappedEventArgs e)
+        {
+            await Navigation.PushModalAsync( new RecoveryAccount());
         }
     }
 }

@@ -34,8 +34,10 @@
 
         <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
 
+          
         <StackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Start" >
-            <Label Text="Ваше хранилище" SemanticProperties.HeadingLevel="Level2" FontSize="45" />
+                <Label Text="Ваше хранилище" SemanticProperties.HeadingLevel="Level2" FontSize="45" />
+           
             <Label Text="Авторизуйтесь для получения функционала" SemanticProperties.HeadingLevel="Level2" FontSize="20" FontAttributes="Bold" />
         </StackLayout>
         <StackLayout Grid.Row="0" Spacing="10" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">

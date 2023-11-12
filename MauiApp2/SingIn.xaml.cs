@@ -3,15 +3,16 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using MailKit.Net.Smtp;
-using MailKit.Security;
 using MimeKit;
-
+using System.Net.Mail;
+using System.Net;
 
 namespace MauiApp2
 {
     public partial class SingIn : ContentPage
     {
         private DatabaseServiceUser _databaseService;
+   
 
         public SQLiteConnection CreateDatabase(string databasePath)
         {
@@ -84,24 +85,38 @@ namespace MauiApp2
                 return;
             }
 
-            //string subject = "Доброго времени Суток! Это Ваше Хранилище!";
-            //string body = "Вы успешно создали свой аккаунт!";
-            //string[] recipients = new[] { email };
 
-            //var message = new MimeMessage();
-            //message.From.Add(new MailboxAddress("Ваше хранилище", "keylockboxsend@gmail.com"));
-            //message.To.AddRange(recipients.Select(r => new MailboxAddress(r, r)));
-
-            //message.Subject = subject;
-            //message.Body = new TextPart("plain") { Text = body };
-
-            //using (var client = new SmtpClient())
+            //using var client = new SmtpClient();
+            //client.Connect(host: "sandbox.smtp.mailtrap.io", port: 2525, useSsl: false);
+            //client.Authenticate(userName: "9171812bb4e59c", password: "907599476219c5");
+            //var bodyBuilder = new BodyBuilder()
             //{
-            //    client.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
-            //    client.Authenticate("keylockboxsend@gmail.com", "fgh359585lockbox");
-            //    client.Send(message);
-            //    client.Disconnect(true);
-            //}
+
+            //    TextBody = "Доброго времени суток! Это ваше хранилище!"
+
+
+            // };
+            //var emailSending = new MimeMessage()
+            //{
+            //    From = { new MailboxAddress(name: "Ваше Хранилище", address: "keylockboxsend@gmail.com") },
+            //    To = { new MailboxAddress(name: "Товарищ", address: email) },
+            //    Subject = "Вы успешно создали свой аккаунт!",
+            //    Body = bodyBuilder.ToMessageBody()
+
+            //};
+
+            //client.Send(emailSending);
+            //client.Disconnect(quit:true);
+            var generator = new RandomWordGenerator();
+            string randomWord = generator.GenerateRandomWord();
+            Console.WriteLine(randomWord);
+
+            var client = new System.Net.Mail.SmtpClient("sandbox.smtp.mailtrap.io", 2525)
+            {
+                Credentials = new NetworkCredential("9171812bb4e59c", "907599476219c5"),
+                EnableSsl = true
+            };
+            client.Send(email, "keylockboxsend@gmail.com", "Доброго времени суток! Это ваше хранилище!", $"Вы успешно создали свой аккаунт! Ваш резервный ключ для восстановления аккаунта: {randomWord}");
 
             string salt = email.Split('@')[0];
             string hashedPassword = HashPassword(password1, salt);
@@ -116,12 +131,13 @@ namespace MauiApp2
                 PinCode = "NoN",
                 StatusAccount = "Off",
                 ThemeApplication = "Light",
-                StatusSort = "По названию"
+                StatusSort = "По названию",
+                SaveKey = randomWord
             };
 
             _databaseService.InsertUser(user);
 
-            await DisplayAlert("Успех", "Пользователь успешно создан", "OK");
+            await DisplayAlert("Успех", "Пользователь успешно создан. Вам на почту был выслан резервный код для возможности восстановить аккаунт.", "OK");
             await Navigation.PopModalAsync();
         }
         private string HashPassword(string password, string salt)
@@ -158,6 +174,25 @@ namespace MauiApp2
         private void OnGoBackTapped(object sender, TappedEventArgs e)
         {
 
+        }
+    }
+    public class RandomWordGenerator
+    {
+        private static readonly Random random = new Random();
+        private const string Characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+        public string GenerateRandomWord()
+        {
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < 6; i++) // Генерируем до 6 символов
+            {
+                int index = random.Next(Characters.Length);
+                char randomChar = Characters[index];
+                sb.Append(randomChar);
+            }
+
+            return sb.ToString();
         }
     }
 }

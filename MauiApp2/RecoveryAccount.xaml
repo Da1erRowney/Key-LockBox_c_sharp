@@ -1,7 +1,8 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MauiApp2.SingUp">
-    
+             x:Class="MauiApp2.RecoveryAccount">
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style TargetType="Label">
@@ -9,22 +10,22 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <Grid>
-        
+
         <Grid.RowDefinitions>
-            
+
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
-            
+
         </Grid.RowDefinitions>
         <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
         <Label
-             Text="Вход"
+             Text="Восстановление аккаунта"
              FontSize="45"
              HorizontalOptions="Center"
              VerticalOptions="Start"/>
-        
+
         <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0" HorizontalOptions="Center" VerticalOptions="Center">
             <Label
                     Text="Заполните данные"
@@ -40,43 +41,39 @@
                     BackgroundColor="Transparent"
                     Keyboard="Email"/>
 
-                <Entry
+            <Entry
                     x:Name="EntryPassword1"
-                    Placeholder="Введите пароль"
+                    Placeholder="Введите новый пароль"
                     IsPassword="True"
                     WidthRequest="300"
                     BackgroundColor="Transparent"
                     MaxLength="50"/>
+            <Entry
+                     x:Name="EntrySaveKey"
+                     Placeholder="Введите резервный ключ восстановления"
+                     IsPassword="True"
+                     WidthRequest="300"
+                     BackgroundColor="Transparent"
+                     MaxLength="50"/>
 
-                 <Frame
+            <Frame
                          HeightRequest="50"
-                         WidthRequest="100"
+                         WidthRequest="130"
                          Padding="5"
                          CornerRadius="30"
                          HasShadow="True" >
 
-                     <Button
+                <Button
                              x:Name="ComeBtn"
-                             Text="Войти"
-                             Clicked="OnComeClicked"
-                             WidthRequest="100"
+                             Text="Восстановить"
+                             Clicked="OnRecovery"
+                             WidthRequest="140"
                              FontSize="20"
                              CornerRadius="30"
                              Margin="0,10"
                              BackgroundColor="Transparent"/>
-                     
-                 </Frame>
-            <Label
-                 Text="Забыли пароль"
-                 FontSize="20"
-                 HorizontalOptions="Center"
-                 VerticalOptions="End"
-                 Margin="0,10">
 
-                <Label.GestureRecognizers>
-                    <TapGestureRecognizer Tapped="OnRecoveryKey" />
-                </Label.GestureRecognizers>
-            </Label>
+            </Frame>
 
             <Label
                         x:Name="returns"
@@ -85,14 +82,13 @@
                         HorizontalOptions="Center"
                         VerticalOptions="End"
                         Margin="0,10">
-                     
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Tapped="OnGoBackTapped" />
-                        </Label.GestureRecognizers>
-                 </Label>
-                    
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="OnGoBackTapped" />
+                </Label.GestureRecognizers>
+            </Label>
+
         </VerticalStackLayout>
-            
+
     </Grid>
-        
 </ContentPage>
