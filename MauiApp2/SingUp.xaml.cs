@@ -1,5 +1,3 @@
-using System;
-using System.Text.RegularExpressions;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -9,8 +7,8 @@ namespace MauiApp2
     public partial class SingUp : ContentPage
     {
         private DatabaseServiceUser _databaseService;
-        public static string CurrentUserEmail { get;  set; }
-        public static string CurrentUserPassword { get;  set; }
+        public static string CurrentUserEmail { get; set; }
+        public static string CurrentUserPassword { get; set; }
         public SingUp()
         {
             InitializeComponent();
@@ -53,7 +51,7 @@ namespace MauiApp2
             {
 
                 User user = _databaseService.GetUserByEmail(email);
-                await DisplayAlert("Успех", "Вы авторизовались", "OK");
+                Setting.statusSort = user.StatusSort;
                 BasicsPage basicsPage = new BasicsPage();
                 user.StatusAccount = "On";
                 if (user.ThemeApplication == "Dark")

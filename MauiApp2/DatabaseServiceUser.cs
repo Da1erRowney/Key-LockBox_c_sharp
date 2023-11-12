@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Maui.ApplicationModel.Communication;
-using SQLite;
+﻿using SQLite;
 
 namespace MauiApp2
 {
@@ -65,8 +59,9 @@ namespace MauiApp2
         public string HintsSetting { get; set; }
         public string HintsData { get; set; }
         public string PinCode { get; set; }
-        public string StatusAccount { get; set; } 
+        public string StatusAccount { get; set; }
         public string ThemeApplication { get; set; }
+        public string StatusSort { get; set; }
 
     }
 }

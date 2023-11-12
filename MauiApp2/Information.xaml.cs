@@ -2,10 +2,10 @@ namespace MauiApp2;
 
 public partial class Information : ContentPage
 {
-	public Information()
-	{
-		InitializeComponent();
-	}
+    public Information()
+    {
+        InitializeComponent();
+    }
     [Obsolete]
     protected override void OnAppearing()
     {

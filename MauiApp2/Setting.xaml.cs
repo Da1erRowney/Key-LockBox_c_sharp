@@ -1,8 +1,3 @@
-using Microsoft.Maui.ApplicationModel;
-using Microsoft.Maui.Controls;
-
-
-
 namespace MauiApp2
 {
     public partial class Setting : ContentPage
@@ -10,6 +5,7 @@ namespace MauiApp2
         private DatabaseServiceUser _databaseService;
         string CurrentUserEmail = SingUp.CurrentUserEmail;
         string CurrentUserPassword = SingUp.CurrentUserPassword;
+        public static string statusSort;
 
         //private ImageButton settingsButton; // Приватное поле для хранения ссылки на SettingsBtn
         //public Setting(ImageButton settingsBtn)
@@ -22,6 +18,7 @@ namespace MauiApp2
         public Setting()
         {
             InitializeComponent();
+            sort.SelectedItem = statusSort;
             CheckHintsBasics();
         }
         [Obsolete]
@@ -83,7 +80,7 @@ namespace MauiApp2
 
                 databaseService.UpdateUser(currentUser);
                 Application.Current.UserAppTheme = AppTheme.Light;
-            }    
+            }
 
             await Navigation.PushAsync(new Setting());
             Navigation.RemovePage(this);
@@ -95,9 +92,9 @@ namespace MauiApp2
             accountConfirmation.CurrentUserPassword = SingUp.CurrentUserPassword; // Передача значения CurrentUserPassword
             await Navigation.PushModalAsync(accountConfirmation);// Используйте changeAccountDetails для навигации
 
-           // await Navigation.PushModalAsync(new AccountConfirmation());
-        
-        
+            // await Navigation.PushModalAsync(new AccountConfirmation());
+
+
         }
 
         private async void ExitAccount(object sender, EventArgs e)
@@ -131,6 +128,16 @@ namespace MauiApp2
             await Navigation.PushModalAsync(new Information());
         }
 
-       
+        private void OnSortPickerSelectedIndexChanged(object sender, EventArgs e)
+        {
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            DatabaseServiceUser databaseService = new DatabaseServiceUser(databasePath);
+            User currentUser = databaseService.GetUserByEmail(CurrentUserEmail);
+
+            statusSort = (string)sort.SelectedItem;
+            currentUser.StatusSort = statusSort;
+            databaseService.UpdateUser(currentUser);
+
+        }
     }
 }

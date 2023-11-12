@@ -1,5 +1,5 @@
-using SQLite;
 using PersonalsData;
+using SQLite;
 namespace MauiApp2;
 
 public partial class AddPunct : ContentPage
@@ -40,13 +40,13 @@ public partial class AddPunct : ContentPage
         _databaseService?.CloseConnection();
     }
     public AddPunct()
-	{
+    {
         InitializeComponent();
         string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
-       // string databasePath = @"C:\Users\»горь „ерненко\source\repos\MauiApp2\MauiApp2\personalData.db";
+        // string databasePath = @"C:\Users\»горь „ерненко\source\repos\MauiApp2\MauiApp2\personalData.db";
         _databaseService = new DatabaseServicePersonalData(databasePath);
         SQLiteConnection connection = CreateDatabase(databasePath);
-       
+
 
     }
 
@@ -57,7 +57,7 @@ public partial class AddPunct : ContentPage
 
     private async void AddData(object sender, EventArgs e)
     {
-        
+
         string emailUser = SingUp.CurrentUserEmail;
         string name = EntryName.Text;
         string login = EntryLogin.Text;
@@ -69,7 +69,7 @@ public partial class AddPunct : ContentPage
         DateTime newDate = currentDate.AddHours(+3);
         if (name != null)
         {
-            
+
 
             // —оздание экземпл€ра PersonalData на основе введенных данных
             PersonalData personalData = new PersonalData

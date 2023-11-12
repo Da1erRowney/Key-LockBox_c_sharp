@@ -43,7 +43,7 @@
                     <StackLayout >
 
                         <Label  Text="Добавление дел с личными данными:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи могут добавлять личные данные, такие как пароли, логины, почты и другую информацию, связанную с учетными записями и персональными данными." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи могут добавлять личные данные, такие как пароли, логины, почты и другую информацию, связанную с учетными записями и персональными данными. Для этого на главном экране нажмите на плюсик расположенный снизу вкладки и вы перейдете на вкладку создания персональных данных." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -53,7 +53,7 @@
                     <StackLayout >
 
                         <Label  Text="Просмотр личных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи могут просматривать сохраненные личные данные, отображаемые в удобном и структурированном виде. " FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи могут просматривать сохраненные личные данные, отображаемые в удобном и структурированном виде.Для этого вам просто требуется нажать на уже созданный вами пункт в главном экране. " FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -63,7 +63,7 @@
                     <StackLayout >
 
                         <Label  Text="Изменение личных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи имеют возможность изменять свои личные данные, такие как пароли, логины, почты и другую информацию." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи имеют возможность изменять свои личные данные, такие как пароли, логины, почты и другую информацию.Для этого нажмите на уже созданный вами пункт на главном экране с вашими данными и выберите кнопку Изменить." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -73,7 +73,7 @@
                     <StackLayout >
 
                         <Label  Text="Удаление личных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи могут удалять свои личные данные, которые больше не требуются или устарели." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи могут удалять свои личные данные, которые больше не требуются или устарели. Для этого нажмите на уже созданный вами пункт на главном экране с вашими данными и выберите кнопку Удалить." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -83,7 +83,7 @@
                     <StackLayout >
 
                         <Label  Text="Изменение пользовательских данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи имеют возможность обновлять свои пользовательские данные, такие как почту, пароль профиля и PIN-код." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи имеют возможность обновлять свои пользовательские данные, такие как почту, пароль профиля и PIN-код. Для этого перейдите в настройки, выберите пункт Изменить учетную запись, подвердите свой пароль, для подтверждения, что вы истинный владелец аккаунта и после чего вам будет доступна смена ваших данных." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -93,7 +93,7 @@
                     <StackLayout >
 
                         <Label  Text="Выход из учетной записи:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи могут безопасно выйти из своей учетной записи для обеспечения конфиденциальности и безопасности." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи могут безопасно выйти из своей учетной записи для обеспечения конфиденциальности и безопасности. Для этого перейдите в настройки и выберите Выход из учетной записи." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -103,7 +103,7 @@
                     <StackLayout >
 
                         <Label  Text="Отображение подсказок для вновь созданных учетных записей:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="При создании новой учетной записи пользователи получают полезные подсказки и рекомендации для настройки и использования приложения." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="При создании новой учетной записи пользователи получают полезные подсказки и рекомендации для настройки и использования приложения. Не унывайте если ненароком их так скажем скипнули, для более подробного ознакомления с функционалом вы можете столкнуться в этой вкладке." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -113,7 +113,7 @@
                     <StackLayout >
 
                         <Label  Text="Система PIN-кодов для повторного входа в приложение:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи могут настроить систему PIN-кодов для обеспечения дополнительного уровня безопасности при повторном входе в приложение." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи могут настроить систему PIN-кодов для обеспечения дополнительного уровня безопасности при повторном входе в приложение. Для этого требуется перейти в настройки, выбрать пункт изменить учетную запись, подтвердить пароль и в поле с стандартным значением NoN ввести свой PIN-код, после обязательно в настройках перезайти в свой аккаунт для вступления системы в силу." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -123,7 +123,16 @@
                     <StackLayout >
 
                         <Label  Text="Удаление аккаунта:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
-                        <Label Text="Пользователи имеют возможность удалить свою учетную запись полностью, если они больше не хотят использовать приложение или хотят удалить все свои личные данные." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+                        <Label Text="Пользователи имеют возможность удалить свою учетную запись полностью, если они больше не хотят использовать приложение или хотят удалить все свои личные данные. Удаление учетной записи расположено в меню настроек." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
+
+                    </StackLayout>
+                </Frame>
+                <Frame  BackgroundColor ="Black"  CornerRadius="5" Padding="10" Margin="0,10,0,0">
+
+                    <StackLayout >
+
+                        <Label  Text="Сортировка персональных данных:" FontSize="20" FontAttributes="Bold" VerticalOptions="End" Margin="0,0,0,0"/>
+                        <Label Text="Пользователи имеют возможность выбрать сортировку персональных данных в меню настроек. Могут сортировать по названию, по логину и по дате создания. По умолчанию идет сортировка по названию." FontSize="15" VerticalOptions="Start" Margin="0,10,0,0" />
 
                     </StackLayout>
                 </Frame>
@@ -139,6 +148,8 @@
                         <Label Text="Язык: C#" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
                         <Label Text="Платформа разработки: .NET MAUI" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
                         <Label Text="Лицензия: MIT" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+                        <Label Text="Связь с разработчиком №1: Mail - konstantin032005@gmail.com" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
+                        <Label Text="Связь с разработчиком №2: Telegram - @daler_rowney" FontSize="15" VerticalOptions="Start" Margin="0,0,0,0" />
 
                     </StackLayout>
                 </Frame>

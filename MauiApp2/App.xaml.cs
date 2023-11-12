@@ -25,7 +25,7 @@ public partial class App : Application
         User user = _databaseService.GetUserByStatusAccount("On");
         if (user != null && user.PinCode != "NoN")
         {
-            
+
             string userEmail = user.Email;
             string userPassword = user.Password;
             string userPinCode = user.PinCode;

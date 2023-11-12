@@ -1,11 +1,7 @@
 namespace MauiApp2;
-using Microsoft.Maui.ApplicationModel.Communication;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using MauiApp2;
-using SQLite;
-using static System.Security.Cryptography.SHA256;
 
 
 public partial class ChangeAccountDetails : ContentPage
@@ -42,7 +38,7 @@ public partial class ChangeAccountDetails : ContentPage
         });
         UpdateUserEntry();
     }
-   
+
     private void UpdateUserEntry()
     {
         User user = _databaseService.GetUserByEmail(CurrentUserEmail);

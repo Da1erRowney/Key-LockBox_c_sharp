@@ -1,4 +1,3 @@
-using System.Xml;
 using PersonalsData;
 
 namespace MauiApp2
@@ -67,7 +66,7 @@ namespace MauiApp2
         private void DeleteData(object sender, EventArgs e)
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
-           // string databasePath = @"C:\Users\Игорь Черненко\source\repos\MauiApp2\MauiApp2\personalData.db";
+            // string databasePath = @"C:\Users\Игорь Черненко\source\repos\MauiApp2\MauiApp2\personalData.db";
             DatabaseServicePersonalData databaseService = new DatabaseServicePersonalData(databasePath);
 
             // Удалите выбранные данные из базы данных

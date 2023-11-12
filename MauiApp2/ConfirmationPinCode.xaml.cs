@@ -1,13 +1,14 @@
+
 namespace MauiApp2;
 
 public partial class ConfirmationPinCode : ContentPage
 {
     private DatabaseServiceUser _databaseService;
-   
+
     public ConfirmationPinCode()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
     [Obsolete]
     protected override void OnAppearing()
     {
@@ -29,16 +30,16 @@ public partial class ConfirmationPinCode : ContentPage
 
     }
 
-  
+
     private void UpdateUserLabel()
     {
-       
+
 
         var userEmail = App.CurrentUserEmail;
         var labelText = $"Пользователь {userEmail}";
         UserLabel.Text = labelText;
-        
-       
+
+
     }
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {
@@ -61,9 +62,13 @@ public partial class ConfirmationPinCode : ContentPage
         }
         if (pincode == App.CurrentUserPinCode)
         {
-            
-            SingUp.CurrentUserEmail   = App.CurrentUserEmail   ;
-            SingUp.CurrentUserPassword = App.CurrentUserPassword ;
+            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+            _databaseService = new DatabaseServiceUser(databasePath);
+            User user = _databaseService.GetUserByEmail(App.CurrentUserEmail);
+
+            SingUp.CurrentUserEmail = App.CurrentUserEmail;
+            SingUp.CurrentUserPassword = App.CurrentUserPassword;
+            Setting.statusSort = user.StatusSort;
             await Navigation.PushModalAsync(new BasicsPage());
 
         }

@@ -1,14 +1,5 @@
-using Microsoft.Maui.Controls;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
 using PersonalsData;
-using SQLite;
-using System.Reflection;
-using System.Data.Common;
-using System.IO;
-using System.Globalization;
+using System.ComponentModel;
 using System.Text.RegularExpressions;
 
 
@@ -88,14 +79,14 @@ namespace MauiApp2
 
                 if (nameicon == "стим")
                 {
-                   nameicon = "steam";
+                    nameicon = "steam";
                 }
 
                 if (nameicon == "юбисофт")
                 {
-                    nameicon = "ubisoft"; 
+                    nameicon = "ubisoft";
                 }
-                
+
                 if (nameicon == "вк" || nameicon == "вконтакте")
                 {
                     nameicon = "vk";
@@ -110,7 +101,7 @@ namespace MauiApp2
                 {
                     nameicon = "aliexpress";
                 }
-                
+
 
                 nameicon = Regex.Replace(nameicon, @"кс", "x");
 
@@ -148,7 +139,7 @@ namespace MauiApp2
                         case 'н': return "n";
                         case 'о': return "o";
                         case 'п': return "p";
-                        case 'р': return "r"; 
+                        case 'р': return "r";
                         case 'с': return "s";
                         case 'т': return "t";
                         case 'у': return "u";
@@ -169,7 +160,7 @@ namespace MauiApp2
                 }
 
 
-                var icon = new string[] 
+                var icon = new string[]
                 {
                     "dota2",
                     "google",
@@ -239,13 +230,34 @@ namespace MauiApp2
                 }
             }
 
-
-            PersonalDataList = allPersonalData
-                .Where(data => data.EmailUser == CurrentUserEmail)
-                .OrderBy(data => data.Name)
-                .OrderBy(data => data.DateCreation)
-                .ToList();
-
+            if (Setting.statusSort == "По названию")
+            {
+                PersonalDataList = allPersonalData
+                    .Where(data => data.EmailUser == CurrentUserEmail)
+                    .OrderBy(data => data.Name)
+                    .ToList();
+            }
+            else if (Setting.statusSort == "По логину")
+            {
+                PersonalDataList = allPersonalData
+                    .Where(data => data.EmailUser == CurrentUserEmail)
+                    .OrderBy(data => data.Login)
+                    .ToList();
+            }
+            else if (Setting.statusSort == "По дате создания")
+            {
+                PersonalDataList = allPersonalData
+                    .Where(data => data.EmailUser == CurrentUserEmail)
+                    .OrderBy(data => data.DateCreation)
+                    .ToList();
+            }
+            else
+            {
+                PersonalDataList = allPersonalData
+                    .Where(data => data.EmailUser == CurrentUserEmail)
+                    .OrderBy(data => data.Name)
+                    .ToList();
+            }
             databaseService.CloseConnection();
         }
         private void CheckHintsBasics()

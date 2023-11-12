@@ -1,9 +1,7 @@
+using SQLite;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using MauiApp2;
-using SQLite;
-using static System.Security.Cryptography.SHA256;
 
 
 namespace MauiApp2
@@ -58,25 +56,25 @@ namespace MauiApp2
                 await DisplayAlert("Ошибка", "Не все поля заполнены", "OK");
                 return;
             }
-          
+
             if (password1 != password2)
             {
                 await DisplayAlert("Ошибка", "Пароли не совпадают", "OK");
                 return;
             }
-            
+
             if (password1.Length < 8 || !HasLetterAndDigit(password1))
             {
                 await DisplayAlert("Ошибка", "Пароль должен содержать не менее 8 символов и включать и буквы, и цифры", "Ок");
                 return;
             }
-            
+
             if (!IsValidEmail(email))
             {
                 await DisplayAlert("Ошибка", "Неправильный формат почтового адреса", "OK");
                 return;
             }
-            
+
             if (_databaseService.GetUserByEmail(email) != null)
             {
                 await DisplayAlert("Ошибка", "Пользователь с такой почтой уже существует", "OK");
@@ -92,13 +90,14 @@ namespace MauiApp2
                 Password = hashedPassword,
                 HintsBasics = "NoN",
                 HintsSetting = "NoN",
-                HintsData= "NoN",
-                PinCode="NoN",
+                HintsData = "NoN",
+                PinCode = "NoN",
                 StatusAccount = "Off",
-                ThemeApplication = "Light"
+                ThemeApplication = "Light",
+                StatusSort = "По названию"
             };
-            
-             _databaseService.InsertUser(user);
+
+            _databaseService.InsertUser(user);
 
             await DisplayAlert("Успех", "Пользователь успешно создан", "OK");
             await Navigation.PopModalAsync();
@@ -115,7 +114,7 @@ namespace MauiApp2
 
                 string hashedPassword = BitConverter.ToString(hashedBytes).Replace("-", "").ToLower();
 
-                
+
                 return hashedPassword;
             }
         }

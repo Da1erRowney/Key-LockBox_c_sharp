@@ -1,19 +1,18 @@
 namespace MauiApp2;
 using PersonalsData;
-using SQLite;
 
 public partial class ChangeData : ContentPage
 {
     private PersonalData selectedData;
     public ChangeData(PersonalData selectedData)
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         this.selectedData = selectedData;
 
-        EntryName.Text =selectedData.Name;
-        EntryLogin.Text =selectedData.Login;
-        EntryEmail.Text =selectedData.Email;
-        EntryPassword.Text =selectedData.Password;
+        EntryName.Text = selectedData.Name;
+        EntryLogin.Text = selectedData.Login;
+        EntryEmail.Text = selectedData.Email;
+        EntryPassword.Text = selectedData.Password;
         EntryOtherData.Text = selectedData.OtherData;
     }
     [Obsolete]
@@ -35,7 +34,7 @@ public partial class ChangeData : ContentPage
     }
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {
-       await Navigation.PopModalAsync();
+        await Navigation.PopModalAsync();
     }
 
     private void RenameData(object sender, EventArgs e)
@@ -61,9 +60,9 @@ public partial class ChangeData : ContentPage
         databaseService.CloseConnection();
 
         // Вернитесь на предыдущую страницу
-       
+
         Navigation.PushModalAsync(new BasicsPage());
     }
 
-   
+
 }

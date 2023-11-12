@@ -1,10 +1,5 @@
-using Microsoft.Maui.ApplicationModel.Communication;
 using System.Security.Cryptography;
 using System.Text;
-using System.Text.RegularExpressions;
-using MauiApp2;
-using SQLite;
-using static System.Security.Cryptography.SHA256;
 
 
 namespace MauiApp2;
@@ -14,9 +9,9 @@ public partial class AccountConfirmation : ContentPage
     public string CurrentUserEmail { get; set; }
     public string CurrentUserPassword { get; set; }
     public AccountConfirmation()
-	{
-		InitializeComponent();
-	}
+    {
+        InitializeComponent();
+    }
     [Obsolete]
     protected override void OnAppearing()
     {
@@ -53,12 +48,13 @@ public partial class AccountConfirmation : ContentPage
         string salt = CurrentUserEmail.Split('@')[0];
         string hashedPassword = HashPassword(password, salt);
 
-        if (string.IsNullOrEmpty(password) )
+        if (string.IsNullOrEmpty(password))
         {
             await DisplayAlert("Ошибка", "Не все поля заполнены", "OK");
             return;
         }
-        else if (hashedPassword == CurrentUserPassword) {
+        else if (hashedPassword == CurrentUserPassword)
+        {
             ChangeAccountDetails changeAccountDetails = new ChangeAccountDetails();
             changeAccountDetails.CurrentUserEmail = CurrentUserEmail; // Передача значения CurrentUserEmail
             changeAccountDetails.CurrentUserPassword = password;
@@ -69,7 +65,7 @@ public partial class AccountConfirmation : ContentPage
             await DisplayAlert("Ошибка", "Не правильно введен пароль", "OK");
             return;
         }
-        
+
     }
     private string HashPassword(string password, string salt)
     {
