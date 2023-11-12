@@ -15,7 +15,7 @@ namespace MauiApp2
             sort.SelectedItem = statusSort;
             CheckHintsBasics();
 
-           
+
         }
 
         [Obsolete]
@@ -109,11 +109,22 @@ namespace MauiApp2
 
         private async void DeleteAccount(object sender, EventArgs e)
         {
-            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
-            _databaseService = new DatabaseServiceUser(databasePath);
-            _databaseService.DeleteUserByEmail(CurrentUserEmail);
-            await Navigation.PushModalAsync(new MainPage());
+            bool result = await DisplayAlert("Удаление", "Вы уверены что хотите удалить ваш аккаунт?", "Да", "Нет");
+
+            if (result)
+            {
+                string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
+                _databaseService = new DatabaseServiceUser(databasePath);
+                _databaseService.DeleteUserByEmail(CurrentUserEmail);
+                await Navigation.PushModalAsync(new MainPage());
+            }
         }
+
+        private async Task<bool> alert()
+        {
+            return await DisplayAlert("Удаление", "Вы уверены что хотите удалить ваш аккаунт?", "Да", "Нет");
+        }
+
 
         private async void informationPage(object sender, TappedEventArgs e)
         {
@@ -131,5 +142,7 @@ namespace MauiApp2
             databaseService.UpdateUser(currentUser);
 
         }
+
+       
     }
 }
