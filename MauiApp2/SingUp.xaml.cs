@@ -38,7 +38,6 @@ namespace MauiApp2
         {
             string password1 = EntryPassword1.Text;
             string email = EntryMail.Text;
-            email = email.ToLower();
             // Проверка на пустоту полей
             if (string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(email))
             {
@@ -46,6 +45,7 @@ namespace MauiApp2
                 return;
             }
 
+            email = email.ToLower();
             // Проверка авторизации в базе данных
             bool isAuthenticated = AuthenticateUser(email, password1);
             if (isAuthenticated)
@@ -70,9 +70,10 @@ namespace MauiApp2
             }
             else
             {
-                await DisplayAlert("Ошибка", "Неправильный email или код восстановления", "OK");
+                await DisplayAlert("Ошибка", "Неправильный email или пароль", "OK");
             }
         }
+       
 
         private bool AuthenticateUser(string email, string password)
         {

@@ -53,7 +53,6 @@ namespace MauiApp2
             string password1 = EntryPassword1.Text;
             string password2 = EntryPassword2.Text;
             string email = EntryMail.Text;
-            email = email.ToLower();
 
             if (string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(password2) || string.IsNullOrEmpty(email))
             {
@@ -72,6 +71,7 @@ namespace MauiApp2
                 await DisplayAlert("Ошибка", "Пароль должен содержать не менее 8 символов и включать и буквы, и цифры", "Ок");
                 return;
             }
+            email = email.ToLower();
 
             if (!IsValidEmail(email))
             {

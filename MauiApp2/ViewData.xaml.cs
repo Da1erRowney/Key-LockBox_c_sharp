@@ -12,15 +12,57 @@ namespace MauiApp2
             CheckHintsBasics();
             // Сохраняем выбранные данные в переменную класса
             this.selectedData = selectedData;
+            if (selectedData.Name != null)
+            {
+                Name.Text = "Название: " + selectedData.Name;
+            }
+            else
+            {
+                Name.Text = "Название: Отсутствует";
+            }
 
-            Name.Text = "Название: " + selectedData.Name;
-            Login.Text = "Логин: " + selectedData.Login;
-            Email.Text = "Почта: " + selectedData.Email;
-            Password.Text = "Пароль: " + selectedData.Password;
-            OtherData.Text = "Прочие данные: " + selectedData.OtherData;
+            if (selectedData.Login != null)
+            {
+                Login.Text = "Логин: " + selectedData.Login;
+            }
+            else
+            {
+                Login.Text = "Логин: Отсутствует";
+            }
+
+            if (selectedData.Email != null)
+            {
+                Email.Text = "Почта: " + selectedData.Email;
+            }
+            else
+            {
+                Email.Text = "Почта: Отсутствует";
+            }
+
+
+            if (selectedData.Password != null)
+            {
+                Password.Text = "Пароль: " + selectedData.Password;
+            }
+            else
+            {
+                Password.Text = "Пароль: Отсутствует";
+            }
+
+            if (selectedData.OtherData != null)
+            {
+                OtherData.Text = "Прочие данные: " + selectedData.OtherData;
+            }
+            else
+            {
+                OtherData.Text = "Прочие данные: Отсутствуют";
+            }
+
             DataCreation.Text = "Дата создания: " + selectedData.DateCreation;
             DataModification.Text = "Дата последнего изменения: " + selectedData.LastModifiedDate;
+            
         }
+
         [Obsolete]
         protected override void OnAppearing()
         {

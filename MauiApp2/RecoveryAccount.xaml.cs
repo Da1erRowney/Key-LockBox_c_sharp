@@ -1,5 +1,6 @@
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 
 namespace MauiApp2;
 
@@ -37,7 +38,6 @@ public partial class RecoveryAccount : ContentPage
         string password1 = EntryPassword1.Text;
         string email = EntryMail.Text;
         string saveKey = EntrySaveKey.Text;
-        email = email.ToLower();
 
         if (string.IsNullOrEmpty(password1) || string.IsNullOrEmpty(email)|| string.IsNullOrEmpty(saveKey))
         {
@@ -45,6 +45,12 @@ public partial class RecoveryAccount : ContentPage
             return;
         }
 
+        if (password1.Length < 8 || !HasLetterAndDigit(password1))
+        {
+            await DisplayAlert("Ошибка", "Пароль должен содержать не менее 8 символов и включать и буквы, и цифры", "Ок");
+            return;
+        }
+        email = email.ToLower();
 
         bool isAuthenticated = AuthenticateUser(email, saveKey);
         if (isAuthenticated)
@@ -60,8 +66,12 @@ public partial class RecoveryAccount : ContentPage
 
         else
         {
-            await DisplayAlert("Ошибка", "Неправильный email или пароль", "OK");
+            await DisplayAlert("Ошибка", "Неправильный email или код восстановления", "OK");
         }
+    }
+    private bool HasLetterAndDigit(string input)
+    {
+        return Regex.IsMatch(input, @"[a-zA-Z]") && Regex.IsMatch(input, @"\d");
     }
     private bool AuthenticateUser(string email, string saveKey)
     {
