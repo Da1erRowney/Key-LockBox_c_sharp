@@ -1,4 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
+using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
+
 
 namespace MauiApp2;
 
@@ -17,6 +20,8 @@ public static class MauiProgram
 
 #if DEBUG
         builder.Logging.AddDebug();
+        builder.Services.AddSingleton<App>();
+        builder.Services.AddSingleton(typeof(IFingerprint), CrossFingerprint.Current);
 #endif
 
         return builder.Build();

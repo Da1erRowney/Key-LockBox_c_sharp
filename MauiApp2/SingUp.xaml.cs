@@ -9,6 +9,7 @@ namespace MauiApp2
         private DatabaseServiceUser _databaseService;
         public static string CurrentUserEmail { get; set; }
         public static string CurrentUserPassword { get; set; }
+
         public SingUp()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace MauiApp2
 
                 User user = _databaseService.GetUserByEmail(email);
                 Setting.statusSort = user.StatusSort;
+               
                 BasicsPage basicsPage = new BasicsPage();
                 user.StatusAccount = "On";
                 if (user.ThemeApplication == "Dark")

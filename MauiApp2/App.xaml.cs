@@ -1,4 +1,6 @@
-﻿using SQLite;
+﻿using Plugin.Fingerprint;
+using Plugin.Fingerprint.Abstractions;
+using SQLite;
 
 namespace MauiApp2;
 
@@ -7,6 +9,7 @@ public partial class App : Application
     public static string CurrentUserEmail { get; set; }
     public static string CurrentUserPassword { get; set; }
     public static string CurrentUserPinCode { get; set; }
+    private readonly IFingerprint fingerprint;
     private DatabaseServiceUser _databaseService;
     public SQLiteConnection CreateDatabase(string databasePath)
     {
@@ -41,7 +44,9 @@ public partial class App : Application
             {
                 Application.Current.UserAppTheme = AppTheme.Light;
             }
-            MainPage = new ConfirmationPinCode();
+            fingerprint = CrossFingerprint.Current;
+
+            MainPage = new ConfirmationPinCode(fingerprint);
         }
         else
         {

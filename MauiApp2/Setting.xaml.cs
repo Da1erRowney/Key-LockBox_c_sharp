@@ -7,20 +7,17 @@ namespace MauiApp2
         string CurrentUserPassword = SingUp.CurrentUserPassword;
         public static string statusSort;
 
-        //private ImageButton settingsButton; // Приватное поле для хранения ссылки на SettingsBtn
-        //public Setting(ImageButton settingsBtn)
-        //{
-        //    InitializeComponent();
-
-        //    settingsButton = settingsBtn;
-        //}
+        private DatabaseServiceUser databaseService; // Объявление переменной как поле класса
 
         public Setting()
         {
             InitializeComponent();
             sort.SelectedItem = statusSort;
             CheckHintsBasics();
+
+           
         }
+
         [Obsolete]
         protected override void OnAppearing()
         {
@@ -41,7 +38,7 @@ namespace MauiApp2
         private void CheckHintsBasics()
         {
             string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "user.db");
-            DatabaseServiceUser databaseService = new DatabaseServiceUser(databasePath);
+            databaseService = new DatabaseServiceUser(databasePath); // Инициализация переменной
 
             // Получите информацию о текущем пользователе
             User currentUser = databaseService.GetUserByEmail(CurrentUserEmail);
@@ -91,10 +88,6 @@ namespace MauiApp2
             accountConfirmation.CurrentUserEmail = SingUp.CurrentUserEmail; // Передача значения CurrentUserEmail
             accountConfirmation.CurrentUserPassword = SingUp.CurrentUserPassword; // Передача значения CurrentUserPassword
             await Navigation.PushModalAsync(accountConfirmation);// Используйте changeAccountDetails для навигации
-
-            // await Navigation.PushModalAsync(new AccountConfirmation());
-
-
         }
 
         private async void ExitAccount(object sender, EventArgs e)
@@ -121,7 +114,6 @@ namespace MauiApp2
             _databaseService.DeleteUserByEmail(CurrentUserEmail);
             await Navigation.PushModalAsync(new MainPage());
         }
-
 
         private async void informationPage(object sender, TappedEventArgs e)
         {

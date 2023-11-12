@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
+    
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp2.ConfirmationPinCode">
@@ -57,7 +58,8 @@
                     Margin="0,10"
                     FontSize="18"  />
                 </Frame>
-
+                
+                
                 <Label
                 x:Name="returns"
                 Text="Выйти из аккаунта"
@@ -71,6 +73,13 @@
                     </Label.GestureRecognizers>
                 </Label>
 
+                <ImageButton Margin="0,425,0,0" Source="fingerprint.png"  
+                             SemanticProperties.Hint="Click to authenticate with your fingerprint" 
+                             Clicked="OnBiometricClicked" 
+                             HorizontalOptions="Center" 
+                             VerticalOptions="End" 
+                             WidthRequest="100" 
+                             HeightRequest="100" />
             </VerticalStackLayout>
         </ScrollView>
 

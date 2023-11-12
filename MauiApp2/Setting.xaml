@@ -58,7 +58,7 @@
                     <Label Text="Приложение" FontSize="22" VerticalOptions="Start" />
 
                     <Label Text="Сменить тему" FontSize="20" VerticalOptions="Center" FontAttributes="Bold" Margin="0,30,0,0"/>
-                        <Switch x:Name="ThemeSwitch" IsToggled="false" Toggled="OnThemeToggled" VerticalOptions="Center" Margin="0,-35,270,0"/>
+                        <Switch x:Name="ThemeSwitch"  Toggled="OnThemeToggled" VerticalOptions="Center" Margin="0,-35,270,0"/>
                     <Label Text="Смена темы приложения." FontSize="12" VerticalOptions="Start" Margin="0,-15,0,0" />
                         
                     <Label Text="Об Приложении" FontAttributes="Bold" FontSize="20" VerticalOptions="End" Margin="0,30,0,0">
@@ -84,7 +84,7 @@
                             <x:String>По дате создания</x:String>
                         </Picker.Items>
                     </Picker>
-                    <Label Text="Вы можете отсортировать персональные данные по заданному параметру." FontSize="12" VerticalOptions="Start" Margin="0,0,0,0" />
+                    <Label Text="Вы можете отсортировать персональные данные по заданному параметру." FontSize="12" VerticalOptions="Start" Margin="0,-5,0,0" />
 
                 </StackLayout>
             </Frame>
