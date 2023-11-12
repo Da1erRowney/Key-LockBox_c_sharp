@@ -63,7 +63,9 @@
 
 	<ItemGroup>
 		<PackageReference Include="Dakov.Transliterator" Version="1.1.4" />
+		<PackageReference Include="MailKit" Version="4.3.0" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
+		<PackageReference Include="MimeKit" Version="4.3.0" />
 		<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
 		<PackageReference Include="Plugin.Fingerprint" Version="2.1.5" />
 		<PackageReference Include="sqlite-net-pcl" Version="1.8.116" />

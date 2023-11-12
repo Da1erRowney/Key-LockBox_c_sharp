@@ -2,6 +2,9 @@ using SQLite;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
+using MailKit.Net.Smtp;
+using MailKit.Security;
+using MimeKit;
 
 
 namespace MauiApp2
@@ -80,6 +83,25 @@ namespace MauiApp2
                 await DisplayAlert("Ошибка", "Пользователь с такой почтой уже существует", "OK");
                 return;
             }
+
+            //string subject = "Доброго времени Суток! Это Ваше Хранилище!";
+            //string body = "Вы успешно создали свой аккаунт!";
+            //string[] recipients = new[] { email };
+
+            //var message = new MimeMessage();
+            //message.From.Add(new MailboxAddress("Ваше хранилище", "keylockboxsend@gmail.com"));
+            //message.To.AddRange(recipients.Select(r => new MailboxAddress(r, r)));
+
+            //message.Subject = subject;
+            //message.Body = new TextPart("plain") { Text = body };
+
+            //using (var client = new SmtpClient())
+            //{
+            //    client.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            //    client.Authenticate("keylockboxsend@gmail.com", "fgh359585lockbox");
+            //    client.Send(message);
+            //    client.Disconnect(true);
+            //}
 
             string salt = email.Split('@')[0];
             string hashedPassword = HashPassword(password1, salt);

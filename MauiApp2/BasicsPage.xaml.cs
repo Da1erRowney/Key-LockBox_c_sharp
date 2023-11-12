@@ -10,6 +10,7 @@ namespace MauiApp2
     {
         private List<PersonalData> _personalDataList;
         string CurrentUserEmail = SingUp.CurrentUserEmail;
+        public static string iconView;
         public List<PersonalData> PersonalDataList
         {
             get { return _personalDataList; }
@@ -221,12 +222,12 @@ namespace MauiApp2
                 if (icon.Contains(nameicontranc))
                 {
                     data.IconUrl = $"{nameicontranc}.png";
+                    iconView = data.IconUrl;
                 }
                 else
                 {
-
-
                     data.IconUrl = "noticon.png";
+                    iconView = data.IconUrl;
                 }
             }
 
