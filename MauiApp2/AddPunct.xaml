@@ -15,19 +15,21 @@
                 x:Name="gif" 
                 Source="mainbackground.gif" 
                 Aspect="AspectFill"/>
-            
-            <VerticalStackLayout 
-                Grid.Row="0" 
-                Spacing="25" 
-                Padding="20,0" 
-                HorizontalOptions="Center" 
-                VerticalOptions="Start">
-
                 <Label
                     Text="Добавление данных"
                     FontSize="45"
                     HorizontalOptions="Center"
                     VerticalOptions="Start" />
+            
+            <VerticalStackLayout 
+                Grid.Row="0" 
+                Spacing="25" 
+                Padding="20,0" 
+                WidthRequest="400"
+                HorizontalOptions="Center" 
+                VerticalOptions="Center"
+                >
+
                 <Frame  
                     BackgroundColor ="Black"  
                     CornerRadius="5" 

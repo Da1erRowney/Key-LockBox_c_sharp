@@ -11,6 +11,7 @@ public partial class ConfirmationPinCode : ContentPage
     {
         InitializeComponent();
         this.fingerprint = fingerprint;
+
     }
     [Obsolete]
     protected override void OnAppearing()
@@ -29,20 +30,21 @@ public partial class ConfirmationPinCode : ContentPage
             return false; // Остановить таймер после одного выполнения
         });
         base.OnAppearing();
+       
         UpdateUserLabel();
+        
+
 
     }
 
 
+
     private void UpdateUserLabel()
     {
-
-
         var userEmail = App.CurrentUserEmail;
         var labelText = $"Пользователь {userEmail}";
         UserLabel.Text = labelText;
-
-
+        
     }
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {

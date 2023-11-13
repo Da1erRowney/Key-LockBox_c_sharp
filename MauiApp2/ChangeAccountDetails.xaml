@@ -22,19 +22,19 @@
             x:Name="gif" 
             Source="mainbackground.gif" 
             Aspect="AspectFill" />
+                <Label
+                    Text="Редактирование данных"
+                    FontSize="35"
+                    HorizontalOptions="Center"
+                    />
         <ScrollView>
             <VerticalStackLayout 
                 Grid.Row="0" 
                 Spacing="25" 
                 Padding="20,0" 
                 HorizontalOptions="Center" 
-                VerticalOptions="Start">
+                VerticalOptions="Center">
 
-                <Label
-                    Text="Редактирование данных"
-                    FontSize="40"
-                    HorizontalOptions="Center"
-                    VerticalOptions="Start" />
                 <Frame 
                     BackgroundColor ="Black" 
                     CornerRadius="5" 

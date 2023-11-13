@@ -6,16 +6,16 @@
    
     <Grid >
         <Image x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
-        <ScrollView>
-
-            <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0"  WidthRequest="400">
-
                 <Label
                     Text="Ваши данные"
                     FontSize="45"
                     TextColor="White"
                     HorizontalOptions="Center"
                     VerticalOptions="Start" />
+        <ScrollView>
+
+            <VerticalStackLayout Grid.Row="0" Spacing="25" Padding="20,0"  WidthRequest="400 " VerticalOptions="Center">
+
 
 
                 <Image x:Name ="ViewImage" Source="{Binding IconUrl}"/>
@@ -30,7 +30,7 @@
                             x:Name="Name"
                             Text="Название: Неизвестно"
                             FontSize="15"
-                            VerticalOptions="Start" />
+                            VerticalOptions="Center" />
                 </Frame>
 
                 <Frame 
@@ -44,7 +44,7 @@
                         Margin="0,3,0,0"
                         Text="Логин: Неизвестно"
                         FontSize="15"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
                 </Frame>
 
                 <Frame 
@@ -57,7 +57,7 @@
                         Margin="0,3,0,0"
                         Text="Почта: Неизвестно"
                         FontSize="15"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
                 </Frame>
                 
                 <Frame 
@@ -70,7 +70,7 @@
                         Margin="0,3,0,0"
                         Text="Пароль: Неизвестно"
                         FontSize="15"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
                 </Frame>
 
                 <Frame 
@@ -83,7 +83,7 @@
                         Margin="0,3,0,0"
                         Text="Прочие данные: Неизвестно"
                         FontSize="15"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
                 </Frame>
 
                 <Frame 
@@ -96,7 +96,7 @@
                         Margin="0,3,0,0"
                         Text="Дата создания: Неизвестно"
                         FontSize="15"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
                 </Frame>
                                 
                  <Frame 
@@ -109,7 +109,7 @@
                         x:Name="DataModification"
                         Text="Дата последнего изменения: Неизвестно"
                         FontSize="15"
-                        VerticalOptions="Start" />
+                        VerticalOptions="Center" />
                  </Frame>
 
                 <Frame

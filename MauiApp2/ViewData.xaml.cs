@@ -105,20 +105,25 @@ namespace MauiApp2
             await Navigation.PopModalAsync();
         }
 
-        private void DeleteData(object sender, EventArgs e)
+        private async void DeleteData(object sender, EventArgs e)
         {
-            string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
-            // string databasePath = @"C:\Users\Игорь Черненко\source\repos\MauiApp2\MauiApp2\personalData.db";
-            DatabaseServicePersonalData databaseService = new DatabaseServicePersonalData(databasePath);
+            bool result = await DisplayAlert("Удаление", "Вы уверены что хотите удалить ваши данные?", "Да", "Нет");
 
-            // Удалите выбранные данные из базы данных
-            databaseService.DeletePersonalData(selectedData);
+            if (result)
+            {
+                string databasePath = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "personalData.db");
+                // string databasePath = @"C:\Users\Игорь Черненко\source\repos\MauiApp2\MauiApp2\personalData.db";
+                DatabaseServicePersonalData databaseService = new DatabaseServicePersonalData(databasePath);
 
-            // Закройте соединение с базой данных
-            databaseService.CloseConnection();
+                // Удалите выбранные данные из базы данных
+                databaseService.DeletePersonalData(selectedData);
 
-            // Вернитесь на предыдущую страницу
-            Navigation.PushModalAsync(new BasicsPage());
+                // Закройте соединение с базой данных
+                databaseService.CloseConnection();
+
+                // Вернитесь на предыдущую страницу
+                Navigation.PushModalAsync(new BasicsPage());
+            }
         }
 
 
