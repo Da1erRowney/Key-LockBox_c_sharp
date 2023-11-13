@@ -103,8 +103,8 @@ namespace MauiApp2
 
         private async void OnGoBackTapped(object sender, EventArgs e)
         {
-            var basicsPage = new BasicsPage();
-            await Navigation.PushModalAsync(basicsPage);
+         //   var basicsPage = new BasicsPage();
+            await Navigation.PopModalAsync();
         }
 
         private async void DeleteAccount(object sender, EventArgs e)

@@ -9,11 +9,11 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    <ScrollView>
     <Grid >
+        <Image Grid.Row ="0" x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
+    <ScrollView>
         
 
-        <Image Grid.Row ="0" x:Name="gif" Source="mainbackground.gif" Aspect="AspectFill" />
             <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="10,0" VerticalOptions="Start" Opacity="0.8">
 
                 <Label Text="Хранилище паролей и персональных данных" FontSize="35" VerticalOptions="Start" HorizontalOptions="Center" />
@@ -161,8 +161,8 @@
             </Label.GestureRecognizers>
         </Label>
             </VerticalStackLayout>
+    </ScrollView>
     </Grid>
     
-    </ScrollView>
 
 </ContentPage>

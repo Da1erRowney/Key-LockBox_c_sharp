@@ -52,7 +52,7 @@ public partial class AddPunct : ContentPage
 
     private async void OnGoBackTapped(object sender, TappedEventArgs e)
     {
-        await Navigation.PushModalAsync(new BasicsPage());
+        await Navigation.PopModalAsync();
     }
 
     private async void AddData(object sender, EventArgs e)

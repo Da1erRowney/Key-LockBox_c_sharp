@@ -216,7 +216,13 @@ namespace MauiApp2
                     "rockstargames",
                     "aliexpress",
                     "yandex",
-                    "oplati"
+                    "oplati",
+                    "linkedln",
+                    "amazon",
+                    "netflix",
+                    "twitch",
+                    "xiaomi",
+                    "figma"
                 };
 
                 if (icon.Contains(nameicontranc))
